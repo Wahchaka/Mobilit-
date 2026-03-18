@@ -5,5 +5,14 @@ export const routes: Routes = [
         path: "diagnostic",
         loadComponent: () =>
             import("../diagnostic/diagnostic-container/diagnostic-container").then((m) => m.DiagnosticContainer)
+    },
+    {
+        path: "",
+        redirectTo: "/diagnostic",
+        pathMatch: "full"
+    },
+    {
+        path: "**",
+        redirectTo: "/diagnostic"
     }
 ];

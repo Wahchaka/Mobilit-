@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
+  standalone: true
 })
 export class DiagnosticContainer {}
