@@ -3,7 +3,7 @@
 </div>
 <div class="pt-4"></div>
 <label class="mr-2" for="communeActuelle">Année d'arrivée dans votre commune actuelle :</label>
-<input class="border-black border rounded-lg w-40 p-1" type="number" id="communeActuelle"/>
+<input class="border-black border-b w-40 p-1 outline-none" type="number" id="communeActuelle"/>
 <div class="pt-2"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
@@ -26,7 +26,7 @@
         <input *ngIf="autreChoix" type="text"
         (input)="autreChoixTexte = $any($event.target).value"
         placeholder="Précisez..."
-        class="w-90 border border-black rounded px-2 py-1 text-sm">
+        class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <div class="pb-4"></div>
 </div>
