@@ -3,36 +3,93 @@
 </div>
 <div class="pt-4"></div>
 <div class="flex flex-col gap-3">
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Ne souhaite pas répondre
     </label>
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Sans domicile fixe ou confronté à l'exclusion de son logement
     </label>
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Propriétaire
     </label>
 
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Locataire: (faire un systeme de choix avec "bailleur social", "hors bailleur social")
-    </label>
+    <div class="flex items-center gap-4 flex-wrap">
+        <label class="flex items-center gap-2">
+            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                (change)="locataire = !locataire">
+            Locataire
+        </label>
 
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Hébergement: (faire un systeme de choix avec "amis", "parents", "conjoint")
-    </label>
+        <ng-container *ngIf="locataire">
+            <label class="flex items-center gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+                    (change)="baileurSocial = !baileurSocial">
+                Bailleur social
+            </label>
+            <label class="flex items-center gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+                    (change)="horsBaileurSocial = !horsBaileurSocial">
+                Hors bailleur social
+            </label>
+        </ng-container>
+    </div>
+
+    <div class="flex items-center gap-4 flex-wrap">
+        <label class="flex items-center gap-2">
+            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                (change)="hebergement = !hebergement">
+            Hébergement
+        </label>
+
+        <ng-container *ngIf="hebergement">
+            <label class="flex items-center gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+                    (change)="hebergementAmis = !hebergementAmis">
+                Amis
+            </label>
+            <label class="flex items-center gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+                    (change)="hebergementParents = !hebergementParents">
+                Parents
+            </label>
+            <label class="flex items-center gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+                    (change)="hebergementConjoint = !hebergementConjoint">
+                Conjoint
+            </label>
+            <label class="flex items-center gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+                    (change)="hebergementAvecParticipation = !hebergementAvecParticipation">
+                Avec participation financière
+            </label>
+            <label class="flex items-center gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+                    (change)="hbergementSansParticipation = !hbergementSansParticipation">
+                Sans participation
+            </label>
+        </ng-container>
+    </div>
 
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Foyer
     </label>
+
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Autres (mettre un champs texte)
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+            (change)="autreLogement = !autreLogement">
+        Autres :
+        <input *ngIf="autreLogement" type="text"
+            (input)="autreLogementTexte = $any($event.target).value"
+            placeholder="Précisez..."
+            class="w-90 border border-black rounded px-2 py-1 text-sm">
     </label>
+
     <div class="pb-4"></div>
 </div>

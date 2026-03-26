@@ -20,8 +20,13 @@
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Autres (mettre un champ texte)
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="autreChoix =!autreChoix">
+        Autres :
+        <input *ngIf="autreChoix" type="text"
+        (input)="autreChoixTexte = $any($event.target).value"
+        placeholder="Précisez..."
+        class="w-90 border border-black rounded px-2 py-1 text-sm">
     </label>
     <div class="pb-4"></div>
 </div>
