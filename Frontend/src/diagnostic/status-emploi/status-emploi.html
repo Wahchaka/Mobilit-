@@ -4,31 +4,55 @@
 <div class="pt-4"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="interimaire = !interimaire">
         Intérimaire
+        <input *ngIf="interimaire" type="text"
+        (input)="interimaireTexte = $any($event.target).value"
+        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="cdd = !cdd">
         CDD
+        <input *ngIf="cdd" type="text"
+        (input)="cddTexte = $any($event.target).value"
+        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="cdi = !cdi">
         CDI
+        <input *ngIf="cdi" type="text"
+        (input)="cdiTexte = $any($event.target).value"
+        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="apprentissage = !apprentissage">
         Apprentissage
+        <input *ngIf="apprentissage" type="text"
+        (input)="apprentissageTexte = $any($event.target).value"
+        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="contratAide = !contratAide">
         Contrat aidé
+        <input *ngIf="contratAide" type="text"
+        (input)="contratAideTexte = $any($event.target).value"
+        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="serviceCivique = !serviceCivique">
         Service civique
+        <input *ngIf="serviceCivique" type="text"
+        (input)="serviceCiviqueTexte = $any($event.target).value"
+        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <div class="pb-4"></div>
 </div>

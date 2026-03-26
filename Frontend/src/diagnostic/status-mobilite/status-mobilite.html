@@ -4,8 +4,12 @@
 <div class="pt-4"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="codeObtenu = !codeObtenu">
         Code obtenu
+        <input *ngIf="codeObtenu" type="text"
+        (input)="codeEnCoursTexte = $any($event.target).value"
+        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
