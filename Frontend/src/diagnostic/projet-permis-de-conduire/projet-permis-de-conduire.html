@@ -68,8 +68,13 @@
         Jamais inscrit en auto-école
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Inscrit en auto-école
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="inscritAE =!inscritAE">
+        Inscrit en auto-école :
+        <input *ngIf="inscritAE" type="text"
+        (input)="inscritAETexte = $any($event.target).value"
+        placeholder="Laquelle ?"
+        class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
@@ -92,8 +97,13 @@
         Préparation conduite (estimation inconnue)
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Préparation conduite estimation : (A FAIRE !!!!)
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="estimiationPermis = !estimiationPermis">
+        Préparation conduite estimation :
+        <input *ngIf="estimiationPermis" type="text"
+        (input)="estimationText = $any($event.target).value"
+        placeholder="Précisez..."
+        class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
