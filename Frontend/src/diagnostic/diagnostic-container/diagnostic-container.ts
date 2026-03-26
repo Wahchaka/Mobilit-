@@ -8,10 +8,16 @@ import { SituationFamiliale } from '../situation-familiale/situation-familiale';
 import { Ressources } from '../ressources/ressources';
 import { AccompagnementSocial } from '../accompagnement-social/accompagnement-social';
 import { SituationLogement } from '../situation-logement/situation-logement';
+import { ChoixLocalisationDomicile } from '../choix-localisation-domicile/choix-localisation-domicile';
+import { EnvGeoSocial } from '../env-geo-social/env-geo-social';
+import { ProjetDeDemenagement } from '../projet-de-demenagement/projet-de-demenagement';
+import { AnneeArriverFrance } from '../annee-arriver-france/annee-arriver-france';
+import { NavBar } from '../../nav-bar/nav-bar';
 
 @Component({
   selector: 'app-diagnostic-container',
-  imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement],
+  imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
+    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true
