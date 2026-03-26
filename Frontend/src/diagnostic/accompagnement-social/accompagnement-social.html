@@ -4,31 +4,34 @@
 <div class="pt-4"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Département
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         France travail
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         CCAS
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Mission locale
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         AAH
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
-        Autre (A FAIRE !!!!!)
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="Autre = !Autre">
+        Autre
+        <input *ngIf="Autre" type="text" (input)="quoi = $any($event.target).value"
+        class="w-90 border border-black rounded px-2 py-1 text-sm">
     </label>
     <div class="pb-4"></div>
 </div>

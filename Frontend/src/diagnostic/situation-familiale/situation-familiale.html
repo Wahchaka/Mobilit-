@@ -4,31 +4,41 @@
 <div class="pt-4"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Veuf(ve)
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Divorcé(e) /Séparé(e)
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Célibataire
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Marié(e)/PACSE/concubinage
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
         Sans enfant
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600">
-        Enfants (A FAIRE !!!!!)
-    </label>
+    <input
+        type="checkbox"
+        class="w-5 h-5 accent-blue-600 cursor-pointer"
+        (change)="aDesEnfants = !aDesEnfants">
+    Enfants
+
+    <input
+        *ngIf="aDesEnfants"
+        type="number"
+        (input)="nombreEnfants = +$any($event.target).value"
+        placeholder="Combien ?"
+        class="w-26 border border-black rounded px-2 py-1 text-sm">
+</label>
     <div class="pb-4"></div>
 </div>
