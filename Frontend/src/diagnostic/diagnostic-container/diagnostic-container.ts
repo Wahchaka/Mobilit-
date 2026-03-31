@@ -13,11 +13,13 @@ import { EnvGeoSocial } from '../env-geo-social/env-geo-social';
 import { ProjetDeDemenagement } from '../projet-de-demenagement/projet-de-demenagement';
 import { AnneeArriverFrance } from '../annee-arriver-france/annee-arriver-france';
 import { NavBar } from '../../nav-bar/nav-bar';
+import { PersonnesACharge } from '../personnes-a-charge/personnes-a-charge';
+import { Sante } from '../sante/sante';
 
 @Component({
   selector: 'app-diagnostic-container',
   imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
-    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar],
+    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true
