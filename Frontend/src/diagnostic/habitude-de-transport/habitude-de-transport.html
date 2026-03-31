@@ -11,7 +11,26 @@
         <label *ngFor="let item of transports" class="flex items-center gap-2">
           <input type="checkbox"> {{ item }}
         </label>
-        <div class="border-b border-black mt-2"></div>
+        <div>
+          <p class="font-medium">Mode de transport :</p>
+          <label *ngFor="let item of transports" class="flex items-center gap-2">
+          <input type="checkbox"> {{ item }}
+          </label>
+          <label class="flex items-center gap-2 mt-2">
+          <input 
+          type="checkbox"
+          [(ngModel)]="habitude.autre">
+          Autre :
+
+          <input 
+          *ngIf="habitude.autre"
+          [(ngModel)]="habitude.autreValue"
+          type="text"
+          placeholder="Précisez..."
+          class="flex-1 border-b border-black outline-none text-sm">
+          </label>
+          <div div class="border-b border-black mt-2"></div>
+        </div>
       </div>
       <div>
         <p class="font-medium">Fréquence :</p>
