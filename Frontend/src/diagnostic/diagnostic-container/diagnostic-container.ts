@@ -15,11 +15,12 @@ import { AnneeArriverFrance } from '../annee-arriver-france/annee-arriver-france
 import { NavBar } from '../../nav-bar/nav-bar';
 import { PersonnesACharge } from '../personnes-a-charge/personnes-a-charge';
 import { Sante } from '../sante/sante';
+import { HabitudeDeTransport } from '../habitude-de-transport/habitude-de-transport';
 
 @Component({
   selector: 'app-diagnostic-container',
   imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
-    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante],
+    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true

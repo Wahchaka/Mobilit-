@@ -1,0 +1,37 @@
+<div class="bg-gray-600 w-full">
+    <h2 class="uppercase font-bold text-white pl-2">Habitude de transport</h2>
+</div>
+<div class="pt-4"></div>
+<div class="w-full border border-black p-4 rounded-sm">
+  <div class="grid grid-cols-3 gap-6">
+    <div *ngFor="let habitude of habitudes; let i = index" class="space-y-4">
+      <p class="font-bold">Habitude {{ i + 1 }} :</p>
+      <div>
+        <p class="font-medium">Mode de transport :</p>
+        <label *ngFor="let item of transports" class="flex items-center gap-2">
+          <input type="checkbox"> {{ item }}
+        </label>
+        <div class="border-b border-black mt-2"></div>
+      </div>
+      <div>
+        <p class="font-medium">Fréquence :</p>
+        <label *ngFor="let item of frequences" class="flex items-center gap-2">
+          <input type="radio" name="freq{{i}}"> {{ item }}
+        </label>
+      </div>
+      <div>
+        <p class="font-medium">Périmètre :</p>
+        <label *ngFor="let item of perimetres" class="flex items-center gap-2">
+          <input type="radio" name="peri{{i}}"> {{ item }}
+        </label>
+      </div>
+      <div>
+        <p class="font-medium">Motif :</p>
+        <label *ngFor="let item of motifs" class="flex items-center gap-2">
+          <input type="checkbox"> {{ item }}
+        </label>
+        <div class="border-b border-black mt-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
