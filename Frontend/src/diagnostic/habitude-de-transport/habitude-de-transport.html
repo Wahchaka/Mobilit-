@@ -7,27 +7,23 @@
     <div *ngFor="let habitude of habitudes; let i = index" class="space-y-4">
       <p class="font-bold">Habitude {{ i + 1 }} :</p>
       <div>
-        <p class="font-medium">Mode de transport :</p>
-        <label *ngFor="let item of transports" class="flex items-center gap-2">
-          <input type="checkbox"> {{ item }}
-        </label>
         <div>
           <p class="font-medium">Mode de transport :</p>
           <label *ngFor="let item of transports" class="flex items-center gap-2">
-          <input type="checkbox"> {{ item }}
+            <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
           </label>
           <label class="flex items-center gap-2 mt-2">
-          <input 
-          type="checkbox"
-          [(ngModel)]="habitude.autre">
-          Autre :
-
-          <input 
-          *ngIf="habitude.autre"
-          [(ngModel)]="habitude.autreValue"
-          type="text"
-          placeholder="Précisez..."
-          class="flex-1 border-b border-black outline-none text-sm">
+            <input 
+            type="checkbox"
+            [(ngModel)]="habitude.autre"
+            class="accent-blue-600 cursor-pointer">
+            Autre :
+            <input 
+            *ngIf="habitude.autre"
+            [(ngModel)]="habitude.autreValue"
+            type="text"
+            placeholder="Précisez..."
+            class="flex-1 border-b border-black outline-none text-sm">
           </label>
           <div div class="border-b border-black mt-2"></div>
         </div>
@@ -35,22 +31,86 @@
       <div>
         <p class="font-medium">Fréquence :</p>
         <label *ngFor="let item of frequences" class="flex items-center gap-2">
-          <input type="radio" name="freq{{i}}"> {{ item }}
+          <input class="accent-blue-600 cursor-pointer" type="radio" name="freq{{i}}"> {{ item }}
         </label>
+        <div div class="border-b border-black mt-2"></div>
       </div>
       <div>
         <p class="font-medium">Périmètre :</p>
         <label *ngFor="let item of perimetres" class="flex items-center gap-2">
-          <input type="radio" name="peri{{i}}"> {{ item }}
+          <input class="accent-blue-600 cursor-pointer" type="radio" name="peri{{i}}"> {{ item }}
         </label>
+        <div div class="border-b border-black mt-2"></div>
       </div>
       <div>
-        <p class="font-medium">Motif :</p>
-        <label *ngFor="let item of motifs" class="flex items-center gap-2">
-          <input type="checkbox"> {{ item }}
-        </label>
+        <div>
+          <p class="font-medium">Motif :</p>
+          <label *ngFor="let item of motifsCheck" class="flex items-center gap-2">
+            <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
+          </label>
+          <label class="flex items-center gap-2 mt-2">
+            <input type="checkbox"
+            [(ngModel)]="motif[i].autre2"
+            class="accent-blue-600 cursor-pointer">
+            Autre :
+            <input
+            *ngIf="motif[i].autre2"
+            [(ngModel)]="motif[i].autre2Value" 
+            type="text"
+            placeholder="Précisez..."
+            class="flex-2 border-b border-black outline-none text-sm">
+          </label>
+        </div>
         <div class="border-b border-black mt-2"></div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="pt-14"></div>
+<div class="w-full border border-black p-4 rounded-sm">
+  <div class="grid grid-cols-3 gap-6">
+    <div *ngFor="let abonnement of abonnements; let i = index" class="space-y-4">
+      <p class="font-bold">Abonnement {{ i + 1 }} :</p>
+      <div>
+      <label *ngFor="let item of abonnementCheck" class="flex items-center gap-2">
+        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"
+        [(ngModel)]="abonnement.tarif"
+        class="accent-blue-600 cursor-pointer">
+        Tarif :
+        <input 
+        *ngIf="abonnement.tarif" 
+        type="text"
+        placeholder="Combien ?"
+        class="flex- border-b border-black outline-none text-sm">
+      </label>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="pt-14"></div>
+<div class="w-full border border-black p-4 rounded-sm">
+  <div class="grid grid-cols-3 gap-6">
+    <div *ngFor="let vehicule of vehicules; let i = index" class="space-y-4">
+      <p class="font-bold">Véhicule {{ i + 1 }} :</p>
+      <label *ngFor="let item of vehiculeCheck" class="flex items-center gap-2">
+        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
+      </label>
+      <label class="flex items-center gap-2 mt-2">
+        <input type="checkbox"
+        [(ngModel)]="vehicule.autre3"
+        class="accent-blue-600 cursor-pointer">
+        Autre :
+        <input 
+        *ngIf="vehicule.autre3"
+        [(ngModel)]="vehicule.autre3Value" 
+        type="text"
+        placeholder="Précisez..."
+        class="flex-1 border-b border-black outline-none text-sm">
+      </label>
+      <div div class="border-b border-black mt-2"></div>
     </div>
   </div>
 </div>
