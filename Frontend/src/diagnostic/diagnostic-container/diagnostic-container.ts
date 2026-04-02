@@ -55,7 +55,17 @@ export class DiagnosticContainer {
 
     statusMobilite: new FormGroup({
       codeObtenu: new FormControl(false),
-      
+      codeObtenuTexte: new FormControl(""),
+      finParcoursConduite: new FormControl(false),
+      finParcoursConduiteTexte: new FormControl(""),
+      permisEtranger: new FormControl(false),
+      permisEtrangerTexte: new FormControl(""),
+      codeEnCours: new FormControl(false),
+      codeEnCoursTexte: new FormControl(""),
+      permisB: new FormControl(false),
+      permisBTexte: new FormControl(""),
+      permisAutre: new FormControl(false),
+      permisAutreTexte: new FormControl("")
     })
   })
 
@@ -65,6 +75,10 @@ export class DiagnosticContainer {
 
   get statusEmploi(): FormGroup {
     return this.form.controls['statusEmploi'] as FormGroup
+  }
+
+  get statusMobilite(): FormGroup {
+    return this.form.controls['statusMobilite'] as FormGroup
   }
 
   submit() {

@@ -23,7 +23,7 @@
                 <div class="pb-4"></div>
             <app-diagnostic-coordonness [formGroup]="coordonnees"></app-diagnostic-coordonness>
             <app-status-emploi [formGroup]="statusEmploi"></app-status-emploi>
-            <app-status-mobilite></app-status-mobilite>
+            <app-status-mobilite [formGroup]="statusMobilite"></app-status-mobilite>
             <app-projet-permis-de-conduire></app-projet-permis-de-conduire>
             <app-niveau-etude></app-niveau-etude>
             <app-situation-familiale></app-situation-familiale>
@@ -36,8 +36,8 @@
             <app-annee-arriver-france></app-annee-arriver-france>
             <app-personnes-a-charge></app-personnes-a-charge>
             <app-sante></app-sante>
-            <app-habitude-de-transport></app-habitude-de-transport>4
-            <button (click)="submit()">VALIDER</button>
+            <app-habitude-de-transport></app-habitude-de-transport>
+            <button class="" (click)="submit()">VALIDER</button>
         </div>
     </div>
 </form>
