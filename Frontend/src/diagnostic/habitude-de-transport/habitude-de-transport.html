@@ -93,12 +93,12 @@
 <div class="pt-14"></div>
 <div class="w-full border border-black p-4 rounded-sm">
   <div class="grid grid-cols-3 gap-6">
-    <div *ngFor="let vehicule of vehicules; let i = index" class="space-y-4">
+    <div *ngFor="let vehicule of vehicules; let i = index" class="space-y-1">
       <p class="font-bold">Véhicule {{ i + 1 }} :</p>
       <label *ngFor="let item of vehiculeCheck" class="flex items-center gap-2">
         <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
       </label>
-      <label class="flex items-center gap-2 mt-2">
+      <label class="flex items-center gap-2">
         <input type="checkbox"
         [(ngModel)]="vehicule.autre3"
         class="accent-blue-600 cursor-pointer">
