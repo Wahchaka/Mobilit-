@@ -16,13 +16,32 @@ import { NavBar } from '../../nav-bar/nav-bar';
 import { PersonnesACharge } from '../personnes-a-charge/personnes-a-charge';
 import { Sante } from '../sante/sante';
 import { HabitudeDeTransport } from '../habitude-de-transport/habitude-de-transport';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-diagnostic-container',
   imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
-    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport],
+    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport, FormsModule, ReactiveFormsModule,],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true
 })
-export class DiagnosticContainer {}
+export class DiagnosticContainer {
+  form = new FormGroup({
+    coordonnees: new FormGroup({
+      nomPrenom: new FormControl(""),
+      dateNaissance: new FormControl(""),
+      adresse: new FormControl(""),
+      codePostal: new FormControl(""),
+      ville: new FormControl(""),
+      telephone: new FormControl(""),
+      email: new FormControl("")
+    })
+  })
+  get coordonnees(): FormGroup {
+    return this.form.controls['coordonnees'] as FormGroup;
+  }
+  submit() {
+    console.log(this.form.value)
+  }
+}
