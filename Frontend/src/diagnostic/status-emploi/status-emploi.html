@@ -1,58 +1,57 @@
-<div class="bg-gray-600 w-full">
-    <h2 class="uppercase font-bold text-white pl-2">Status Emploi</h2>
-</div>
-<div class="pt-4"></div>
-<div class="flex flex-col gap-3">
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="interimaire = !interimaire">
-        Intérimaire
-        <input *ngIf="interimaire" type="text"
-        (input)="interimaireTexte = $any($event.target).value"
-        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
-    </label>
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="cdd = !cdd">
-        CDD
-        <input *ngIf="cdd" type="text"
-        (input)="cddTexte = $any($event.target).value"
-        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
-    </label>
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="cdi = !cdi">
-        CDI
-        <input *ngIf="cdi" type="text"
-        (input)="cdiTexte = $any($event.target).value"
-        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
-    </label>
-
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="apprentissage = !apprentissage">
-        Apprentissage
-        <input *ngIf="apprentissage" type="text"
-        (input)="apprentissageTexte = $any($event.target).value"
-        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
-    </label>
-
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="contratAide = !contratAide">
-        Contrat aidé
-        <input *ngIf="contratAide" type="text"
-        (input)="contratAideTexte = $any($event.target).value"
-        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
-    </label>
-
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="serviceCivique = !serviceCivique">
-        Service civique
-        <input *ngIf="serviceCivique" type="text"
-        (input)="serviceCiviqueTexte = $any($event.target).value"
-        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
-    </label>
-    <div class="pb-4"></div>
+<div [formGroup]="formGroup">
+    <div class="bg-gray-600 w-full">
+        <h2 class="uppercase font-bold text-white pl-2">Status Emploi</h2>
+    </div>
+    <div class="pt-4"></div>
+    <div class="flex flex-col gap-3">
+        <label class="flex items-center gap-2">
+            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+            formControlName="interimaire">
+            Intérimaire
+            <input *ngIf="formGroup.get('interimaire')?.value" type="text"
+            formControlName="interimaireTexte"
+            class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+        </label>
+        <label class="flex items-center gap-2">
+            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+            formControlName="cdd">
+            CDD
+            <input *ngIf="formGroup.get('cdd')?.value" type="text"
+            formControlName="cddTexte"
+            class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+        </label>
+        <label class="flex items-center gap-2">
+            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+            formControlName="cdi">
+            CDI
+            <input *ngIf="formGroup.get('cdi')?.value" type="text"
+            formControlName="cdiTexte"
+            class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+        </label>
+        <label class="flex items-center gap-2">
+            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+            formControlName="apprentissage">
+            Apprentissage
+            <input *ngIf="formGroup.get('apprentissage')?.value" type="text"
+            formControlName="apprentissageTexte"
+            class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+        </label>
+        <label class="flex items-center gap-2">
+            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+            formControlName="contratAide">
+            Contrat aidé
+            <input *ngIf="formGroup.get('contratAide')?.value" type="text"
+            formControlName="contratAideTexte"
+            class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+        </label>
+        <label class="flex items-center gap-2">
+            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+            formControlName="serviceCivique">
+            Service civique
+            <input *ngIf="formGroup.get('serviceCivique')?.value" type="text"
+            formControlName="serviceCiviqueTexte"
+            class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+        </label>
+        <div class="pb-4"></div>
+    </div>
 </div>

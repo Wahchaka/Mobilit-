@@ -1,23 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-status-emploi',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './status-emploi.html',
   styleUrl: './status-emploi.css',
 })
 export class StatusEmploi {
-  interimaire: boolean = false
-  interimaireTexte: string | null = null
-  cdd: boolean = false
-  cddTexte: string | null = null
-  cdi: boolean = false
-  cdiTexte: string | null = null
-  apprentissage: boolean = false
-  apprentissageTexte: string | null = null
-  contratAide: boolean = false
-  contratAideTexte: string | null = null
-  serviceCivique: boolean = false
-  serviceCiviqueTexte: string | null = null
+  @Input() formGroup!: FormGroup
 }

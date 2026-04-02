@@ -36,11 +36,37 @@ export class DiagnosticContainer {
       ville: new FormControl(""),
       telephone: new FormControl(""),
       email: new FormControl("")
+    }),
+
+    statusEmploi: new FormGroup({
+      interimaire: new FormControl(false),
+      interimaireTexte: new FormControl(""),
+      cdd: new FormControl(false),
+      cddTexte: new FormControl(""),
+      cdi: new FormControl(false),
+      cdiTexte: new FormControl(""),
+      apprentissage: new FormControl(false),
+      apprentissageTexte: new FormControl(""),
+      contratAide: new FormControl(false),
+      contratAideTexte: new FormControl(""),
+      serviceCivique: new FormControl(false),
+      serviceCiviqueTexte: new FormControl(""),
+    }),
+
+    statusMobilite: new FormGroup({
+      codeObtenu: new FormControl(false),
+      
     })
   })
+
   get coordonnees(): FormGroup {
-    return this.form.controls['coordonnees'] as FormGroup;
+    return this.form.controls['coordonnees'] as FormGroup
   }
+
+  get statusEmploi(): FormGroup {
+    return this.form.controls['statusEmploi'] as FormGroup
+  }
+
   submit() {
     console.log(this.form.value)
   }
