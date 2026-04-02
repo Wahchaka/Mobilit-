@@ -61,7 +61,6 @@
             class="flex-2 border-b border-black outline-none text-sm">
           </label>
         </div>
-        <div class="border-b border-black mt-2"></div>
       </div>
     </div>
   </div>
@@ -70,7 +69,7 @@
 <div class="w-full border border-black p-4 rounded-sm">
   <div class="grid grid-cols-3 gap-6">
     <div *ngFor="let abonnement of abonnements; let i = index" class="space-y-4">
-      <p class="font-bold">Abonnement {{ i + 1 }} :</p>
+      <p class="font-medium">Abonnement {{ i + 1 }} :</p>
       <div>
       <label *ngFor="let item of abonnementCheck" class="flex items-center gap-2">
         <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
@@ -94,7 +93,7 @@
 <div class="w-full border border-black p-4 rounded-sm">
   <div class="grid grid-cols-3 gap-6">
     <div *ngFor="let vehicule of vehicules; let i = index" class="space-y-1">
-      <p class="font-bold">Véhicule {{ i + 1 }} :</p>
+      <p class="font-medium">Véhicule {{ i + 1 }} :</p>
       <label *ngFor="let item of vehiculeCheck" class="flex items-center gap-2">
         <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
       </label>
@@ -110,7 +109,65 @@
         placeholder="Précisez..."
         class="flex-1 border-b border-black outline-none text-sm">
       </label>
-      <div div class="border-b border-black mt-2"></div>
+      <div class="border-b border-black mt-2"></div>
+    </div>
+    <div *ngFor="let proprio of proprietaire" class="space-y-1">
+      <p class="font-medium">Propriétaire :</p>
+      <label *ngFor="let item of proprietaireCheck" class="flex items-center gap-2">
+        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"
+        [(ngModel)]="proprio.autre4"
+        class="accent-blue-600 cursor-pointer">
+        Autre :
+        <input 
+        *ngIf="proprio.autre4" 
+        [(ngModel)]="proprio.autre4Value" 
+        type="text"
+        placeholder="Précisez..."
+        class="flex-1 border-b border-black outline-none text-sm">
+      </label>
+      <div class="border-b border-black mt-2"></div>
+    </div>
+    <div *ngFor="let dispo of disponibilite" class="space-y-1">
+      <p class="font-medium">Disponibilité :</p>
+      <label *ngFor="let item of disponibiliteCheck" class="flex items-center gap-2">
+        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"
+        [(ngModel)]="dispo.autre5"
+        class="accent-blue-600 cursor-pointer">
+        Autre :
+        <input 
+        *ngIf="dispo.autre5" 
+        [(ngModel)]="dispo.autre5Value"
+        type="text"
+        placeholder="Précisez..."
+        class="flex-1 border-b border-black outline-none texte-sm">
+      </label>
+      <div class="border-b border-black mt-2"></div>
+    </div>
+    <div *ngFor="let pret of pretALUsage" class="space-y-1">
+      <p class="font-medium">Prêt à l'usage :</p>
+      <label *ngFor="let item of pretALUSageCheck" class="flex items-center gap-2">
+        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"
+        [(ngModel)]="pret.autre6"
+        class="accent-blue-600 cursor-pointer">
+        Autre :
+        <input type="text"
+        *ngIf="pret.autre6"
+        [(ngModel)]="pret.autre6Value"
+        placeholder="Précisez..."
+        class="flex-1 border-b border-black outline-none">
+      </label>
     </div>
   </div>
 </div>
+<div class="mt-14"></div>
+<label for="complement">Complément d'habitudes :</label>
+<input class="border-black border-b w-full p-1 outline-none" type="text" id="complement"/>
