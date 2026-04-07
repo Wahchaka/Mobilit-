@@ -1,15 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-projet-permis-de-conduire',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './projet-permis-de-conduire.html',
   styleUrl: './projet-permis-de-conduire.css',
 })
 export class ProjetPermisDeConduire {
-  estimiationPermis: boolean = false
-  estimationText: string | null = null
-  inscritAE: boolean = false
-  inscritAETexte: string | null = null
+  @Input() formGroup!: FormGroup
 }

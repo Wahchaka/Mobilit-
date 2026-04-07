@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-situation-familiale',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './situation-familiale.html',
   styleUrl: './situation-familiale.css',
 })
 export class SituationFamiliale {
-  aDesEnfants: boolean = false
-  nombreEnfants: number | null = null
+  @Input() formGroup!: FormGroup
 }

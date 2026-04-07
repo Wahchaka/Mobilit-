@@ -16,7 +16,7 @@ import { NavBar } from '../../nav-bar/nav-bar';
 import { PersonnesACharge } from '../personnes-a-charge/personnes-a-charge';
 import { Sante } from '../sante/sante';
 import { HabitudeDeTransport } from '../habitude-de-transport/habitude-de-transport';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjetAchat } from "../projet-achat/projet-achat";
 
 @Component({
@@ -102,6 +102,45 @@ export class DiagnosticContainer {
       foyerTexte: new FormControl(""),
       autreLogement: new FormControl(false),
       autreLogementTexte: new FormControl("")
+    }),
+    projetPermisConduire: new FormGroup({
+      aucun: new FormControl(false),
+      permisAnnule: new FormControl(false),
+      permisInvalide: new FormControl(false),
+      permisSuspendu: new FormControl(false),
+      permisBBoiteManu: new FormControl(false),
+      permisBEABoiteAuto: new FormControl(false),
+      permisMoto: new FormControl(false),
+      permisPOidsLourd: new FormControl(false),
+      permisSuperLourd: new FormControl(false),
+      transportEnCommun: new FormControl(false),
+      etranger: new FormControl(false),
+      permisAM: new FormControl(false),
+      permisASR: new FormControl(false),
+      permisASSR1: new FormControl(false),
+      jamaisInscrit: new FormControl(false),
+      inscrit: new FormControl(false),
+      inscritTexte: new FormControl(""),
+      demarcheEnCOurs: new FormControl(false),
+      inscriptionValide: new FormControl(false),
+      preparationCode: new FormControl(false),
+      codeValide: new FormControl(false),
+      preparationConduiteInconnu: new FormControl(false),
+      preparationConduite: new FormControl(false),
+      preparationConduiteTexte: new FormControl(""),
+      permisEtrangerEnValidation: new FormControl(false),
+      permisProb: new FormControl(false),
+      permisValidé: new FormControl(false)
+    }),
+
+    situationFamiliale: new FormGroup({
+      veuf: new FormControl(false),
+      divorcé: new FormControl(false),
+      celib: new FormControl(false),
+      marié: new FormControl(false),
+      sansEnfant: new FormControl(false),
+      enfant: new FormControl(false),
+      enfantTexte: new FormControl("")
     })
   })
 
@@ -123,6 +162,14 @@ export class DiagnosticContainer {
 
   get situationLogement(): FormGroup {
     return this.form.controls['situationLogement'] as FormGroup
+  }
+
+  get projetPermisConduire(): FormGroup {
+    return this.form.controls['projetPermisConduire'] as FormGroup
+  }
+
+  get situationFamiliale(): FormGroup {
+    return this.form.controls['situationFamiliale'] as FormGroup
   }
 
   submit() {
