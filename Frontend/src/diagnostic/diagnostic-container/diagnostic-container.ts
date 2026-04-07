@@ -69,6 +69,7 @@ export class DiagnosticContainer {
       permisAutre: new FormControl(false),
       permisAutreTexte: new FormControl("")
     }),
+
     niveauDEtudes: new FormGroup({
       niveau3: new FormControl(false),
       niveau3Texte: new FormControl(""),
@@ -82,6 +83,25 @@ export class DiagnosticContainer {
       niveau7Texte: new FormControl(""),
       niveau8: new FormControl(false),
       niveau8Texte: new FormControl("")
+    }),
+
+    situationLogement: new FormGroup({
+      neSouhaiteRepondre: new FormControl(false),
+      sdf: new FormControl(false),
+      proprietaire: new FormControl(false),
+      locataire: new FormControl(false),
+      baileurSocial: new FormControl(false),
+      horsBaileurSocial: new FormControl(false),
+      hebergement: new FormControl(false),
+      hebergementAmis: new FormControl(false),
+      hebergementParents: new FormControl(false),
+      hebergementConjoint: new FormControl(false),
+      hebergementAvecParticipation: new FormControl(false),
+      hebergementSansParticipation: new FormControl(false),
+      foyer: new FormControl(false),
+      foyerTexte: new FormControl(""),
+      autreLogement: new FormControl(false),
+      autreLogementTexte: new FormControl("")
     })
   })
 
@@ -99,6 +119,10 @@ export class DiagnosticContainer {
 
   get niveauDEtudes(): FormGroup {
     return this.form.controls['niveauDEtudes'] as FormGroup
+  }
+
+  get situationLogement(): FormGroup {
+    return this.form.controls['situationLogement'] as FormGroup
   }
 
   submit() {

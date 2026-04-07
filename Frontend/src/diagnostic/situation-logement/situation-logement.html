@@ -1,95 +1,104 @@
-<div class="bg-gray-600 w-full">
+<div [formGroup]="formGroup">
+  <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Situation logement</h2>
-</div>
-<div class="pt-4"></div>
-<div class="flex flex-col gap-3">
+  </div>
+  <div class="pt-4"></div>
+  <div class="flex flex-col gap-3">
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Ne souhaite pas répondre
+      <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="neSouhaiteRepondre">
+      Ne souhaite pas répondre
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Sans domicile fixe ou confronté à l'exclusion de son logement
+      <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="sdf">
+      Sans domicile fixe ou confronté à l'exclusion de son logement
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Propriétaire
+      <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="proprietaire">
+      Propriétaire
     </label>
 
     <div class="flex items-center gap-4 flex-wrap">
-        <label class="flex items-center gap-2">
-            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-                (change)="locataire = !locataire">
-            Locataire
-        </label>
-
-        <ng-container *ngIf="locataire">
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
-                    (change)="baileurSocial = !baileurSocial">
-                Bailleur social
-            </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
-                    (change)="horsBaileurSocial = !horsBaileurSocial">
-                Hors bailleur social
-            </label>
-        </ng-container>
-    </div>
-
-    <div class="flex items-center gap-4 flex-wrap">
-        <label class="flex items-center gap-2">
-            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-                (change)="hebergement = !hebergement">
-            Hébergement
-        </label>
-
-        <ng-container *ngIf="hebergement">
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
-                    (change)="hebergementAmis = !hebergementAmis">
-                Amis
-            </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
-                    (change)="hebergementParents = !hebergementParents">
-                Parents
-            </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
-                    (change)="hebergementConjoint = !hebergementConjoint">
-                Conjoint
-            </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
-                    (change)="hebergementAvecParticipation = !hebergementAvecParticipation">
-                Avec participation financière
-            </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-                <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
-                    (change)="hbergementSansParticipation = !hbergementSansParticipation">
-                Sans participation
-            </label>
-        </ng-container>
-    </div>
-
-    <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        Foyer
-    </label>
-
-    <label class="flex items-center gap-2">
+      <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-            (change)="autreLogement = !autreLogement">
-        Autres :
-        <input *ngIf="autreLogement" type="text"
-            (input)="autreLogementTexte = $any($event.target).value"
-            placeholder="Précisez..."
-            class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
+          formControlName="locataire">
+        Locataire
+      </label>
+
+      <ng-container *ngIf="formGroup.get('locataire')?.value">
+        <label class="flex items-center gap-2 text-sm text-gray-700">
+          <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+            formControlName="baileurSocial">
+          Bailleur social
+        </label>
+        <label class="flex items-center gap-2 text-sm text-gray-700">
+          <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+            formControlName="horsBaileurSocial">
+          Hors bailleur social
+        </label>
+      </ng-container>
+    </div>
+
+    <div class="flex items-center gap-4 flex-wrap">
+      <label class="flex items-center gap-2">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+          formControlName="hebergement">
+        Hébergement
+      </label>
+
+      <ng-container *ngIf="formGroup.get('hebergement')?.value">
+        <label class="flex items-center gap-2 text-sm text-gray-700">
+          <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+            formControlName="hebergementAmis">
+          Amis
+        </label>
+        <label class="flex items-center gap-2 text-sm text-gray-700">
+          <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+            formControlName="hebergementParents">
+          Parents
+        </label>
+        <label class="flex items-center gap-2 text-sm text-gray-700">
+          <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+            formControlName="hebergementConjoint">
+          Conjoint
+        </label>
+        <label class="flex items-center gap-2 text-sm text-gray-700">
+          <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+            formControlName="hebergementAvecParticipation">
+          Avec participation financière
+        </label>
+        <label class="flex items-center gap-2 text-sm text-gray-700">
+          <input type="checkbox" class="w-4 h-4 accent-blue-400 cursor-pointer"
+            formControlName="hebergementSansParticipation">
+          Sans participation
+        </label>
+      </ng-container>
+    </div>
+
+    <label class="flex items-center gap-2">
+      <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="foyer">
+      Foyer
+      <input *ngIf="formGroup.get('foyer')?.value" type="text"
+      formControlName="foyerTexte"
+      class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
+    </label>
+
+    <label class="flex items-center gap-2">
+      <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="autreLogement">
+      Autres :
+      <input *ngIf="formGroup.get('autreLogement')?.value" type="text"
+        formControlName="autreLogementTexte"
+        placeholder="Précisez..."
+        class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
 
     <div class="pb-4"></div>
+  </div>
 </div>
