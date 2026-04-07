@@ -15,12 +15,12 @@
           <label class="flex items-center gap-2 mt-2">
             <input 
             type="checkbox"
-            [(ngModel)]="habitude.autre"
+            [(ngModel)]="habitude.autre" [ngModelOptions]="{standalone: true}"
             class="accent-blue-600 cursor-pointer">
             Autre :
             <input 
             *ngIf="habitude.autre"
-            [(ngModel)]="habitude.autreValue"
+            [(ngModel)]="habitude.autreValue" [ngModelOptions]="{standalone: true}"
             type="text"
             placeholder="Précisez..."
             class="flex-1 border-b border-black outline-none text-sm">
@@ -51,11 +51,13 @@
           <label class="flex items-center gap-2 mt-2">
             <input type="checkbox"
             [(ngModel)]="motif[i].autre2"
+            [ngModelOptions]="{standalone: true}"
             class="accent-blue-600 cursor-pointer">
             Autre :
             <input
             *ngIf="motif[i].autre2"
             [(ngModel)]="motif[i].autre2Value" 
+            [ngModelOptions]="{standalone: true}"
             type="text"
             placeholder="Précisez..."
             class="flex-2 border-b border-black outline-none text-sm">
@@ -77,6 +79,7 @@
       <label class="flex items-center gap-2">
         <input type="checkbox"
         [(ngModel)]="abonnement.tarif"
+        [ngModelOptions]="{standalone: true}"
         class="accent-blue-600 cursor-pointer">
         Tarif :
         <input 
@@ -100,11 +103,13 @@
       <label class="flex items-center gap-2">
         <input type="checkbox"
         [(ngModel)]="vehicule.autre3"
+        [ngModelOptions]="{standalone: true}"
         class="accent-blue-600 cursor-pointer">
         Autre :
         <input 
         *ngIf="vehicule.autre3"
         [(ngModel)]="vehicule.autre3Value" 
+        [ngModelOptions]="{standalone: true}"
         type="text"
         placeholder="Précisez..."
         class="flex-1 border-b border-black outline-none text-sm">
@@ -119,11 +124,13 @@
       <label class="flex items-center gap-2">
         <input type="checkbox"
         [(ngModel)]="proprio.autre4"
+        [ngModelOptions]="{standalone: true}"
         class="accent-blue-600 cursor-pointer">
         Autre :
         <input 
         *ngIf="proprio.autre4" 
-        [(ngModel)]="proprio.autre4Value" 
+        [(ngModel)]="proprio.autre4Value"
+        [ngModelOptions]="{standalone: true}"
         type="text"
         placeholder="Précisez..."
         class="flex-1 border-b border-black outline-none text-sm">
@@ -138,11 +145,13 @@
       <label class="flex items-center gap-2">
         <input type="checkbox"
         [(ngModel)]="dispo.autre5"
+        [ngModelOptions]="{standalone: true}"
         class="accent-blue-600 cursor-pointer">
         Autre :
         <input 
         *ngIf="dispo.autre5" 
         [(ngModel)]="dispo.autre5Value"
+        [ngModelOptions]="{standalone: true}"
         type="text"
         placeholder="Précisez..."
         class="flex-1 border-b border-black outline-none texte-sm">
@@ -157,11 +166,13 @@
       <label class="flex items-center gap-2">
         <input type="checkbox"
         [(ngModel)]="pret.autre6"
+        [ngModelOptions]="{standalone: true}"
         class="accent-blue-600 cursor-pointer">
         Autre :
         <input type="text"
         *ngIf="pret.autre6"
         [(ngModel)]="pret.autre6Value"
+        [ngModelOptions]="{standalone: true}"
         placeholder="Précisez..."
         class="flex-1 border-b border-black outline-none">
       </label>
@@ -171,3 +182,4 @@
 <div class="mt-14"></div>
 <label for="complement">Complément d'habitudes :</label>
 <input class="border-black border-b w-full p-1 outline-none" type="text" id="complement"/>
+<div class="pt-4"></div>

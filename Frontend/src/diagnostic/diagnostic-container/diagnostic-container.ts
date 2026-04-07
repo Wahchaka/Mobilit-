@@ -17,11 +17,13 @@ import { PersonnesACharge } from '../personnes-a-charge/personnes-a-charge';
 import { Sante } from '../sante/sante';
 import { HabitudeDeTransport } from '../habitude-de-transport/habitude-de-transport';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProjetAchat } from "../projet-achat/projet-achat";
 
 @Component({
   selector: 'app-diagnostic-container',
   imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
-    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport, FormsModule, ReactiveFormsModule,],
+    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport, FormsModule, ReactiveFormsModule, 
+    ProjetAchat],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true
