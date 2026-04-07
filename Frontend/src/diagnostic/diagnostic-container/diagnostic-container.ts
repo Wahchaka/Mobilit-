@@ -68,6 +68,20 @@ export class DiagnosticContainer {
       permisBTexte: new FormControl(""),
       permisAutre: new FormControl(false),
       permisAutreTexte: new FormControl("")
+    }),
+    niveauDEtudes: new FormGroup({
+      niveau3: new FormControl(false),
+      niveau3Texte: new FormControl(""),
+      niveau4: new FormControl(false),
+      niveau4Texte: new FormControl(""),
+      niveau5: new FormControl(false),
+      niveau5Texte: new FormControl(""),
+      niveau6: new FormControl(false),
+      niveau6Texte: new FormControl(""),
+      niveau7: new FormControl(false),
+      niveau7Texte: new FormControl(""),
+      niveau8: new FormControl(false),
+      niveau8Texte: new FormControl("")
     })
   })
 
@@ -81,6 +95,10 @@ export class DiagnosticContainer {
 
   get statusMobilite(): FormGroup {
     return this.form.controls['statusMobilite'] as FormGroup
+  }
+
+  get niveauDEtudes(): FormGroup {
+    return this.form.controls['niveauDEtudes'] as FormGroup
   }
 
   submit() {
