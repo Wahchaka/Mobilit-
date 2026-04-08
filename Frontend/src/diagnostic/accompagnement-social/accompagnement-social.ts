@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-accompagnement-social',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './accompagnement-social.html',
   styleUrl: './accompagnement-social.css',
 })
 export class AccompagnementSocial {
-  Autre: boolean = false
-  quoi: string | null = null
+  @Input() formGroup!: FormGroup
 }

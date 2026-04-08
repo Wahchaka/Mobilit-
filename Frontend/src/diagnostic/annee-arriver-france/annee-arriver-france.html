@@ -1,3 +1,4 @@
+<div [formGroup]="formGroup">
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Année d'arriver en France</h2>
 </div>
@@ -8,20 +9,25 @@
 <div class="flex flex-col gap-3">
     <p class="font-bold">Possédez-vous les documents suivants ? :</p>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="papiersDIdentitéValide">
         Papiers d'identité valide
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="carteDeSéjourValide">
         Carte de séjour valide
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="RécépisséDeDemandeDeTitreDeSéjour">
         Récépissé de demande de titre de séjour
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="aucunDesDocumentsCités">
         Aucun des documents cités
     </label>
     <div class="pb-4"></div>
+</div>
 </div>

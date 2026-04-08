@@ -1,33 +1,39 @@
+<div [formGroup]="formGroup">
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Projet de déménagement</h2>
 </div>
 <div class="pt-4"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="non">
         Non
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="nonMaisEnvisageablePourTrouverUnEmploi">
         Non, mais envisageable pour trouver un emploi
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="uneEnvieUnSouhait">
         C'est une envie, un souhait
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="ouiCEstUnProjetConcret">
         Oui c'est un projet concret
     </label>
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="autre = !autre">
+        formControlName="autre">
         Autre :
-        <input *ngIf="autre" type="text"
-        (input)="autreChoixTexte = $any($event.target).value"
+        <input *ngIf="formGroup.get('autre')?.value" type="text"
+        formControlName="autreTexte"
         placeholder="Précisez..."
         class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <div class="pb-4"></div>
+</div>
 </div>

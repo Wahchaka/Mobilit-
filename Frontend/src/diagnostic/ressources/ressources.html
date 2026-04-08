@@ -1,34 +1,42 @@
+<div [formGroup]="formGroup">
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Ressources</h2>
 </div>
 <div class="pt-4"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="salaire">
         Salaire
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="rsa">
         RSA
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="ass">
         ASS
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="are">
         ARE
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="aah">
         AAH
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="sans">
         Sans
     </label>
     <div class="pb-4"></div>
+</div>
 </div>

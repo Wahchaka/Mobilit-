@@ -1,3 +1,4 @@
+<div [formGroup]="formGroup">
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Santé</h2>
 </div>
@@ -7,11 +8,13 @@
 <div class="flex items-center gap-3">
     <p>CSS :</p>
         <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"/>
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="ouiCSS">
         Oui
     </label>  
     <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox">
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="nonCSS">
         Non
     </label>
 </div>
@@ -19,11 +22,13 @@
 <div class="flex items-center gap-3">
     <p>Avez-vous une reconnaissance RQTH :</p>
         <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"/>
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="ouiRQTH"/>
         Oui
     </label>  
     <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox">
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="nonRQTH">
         Non
     </label>
 </div>
@@ -32,23 +37,28 @@
 <div class="pt-4"></div>
 <div class="flex items-center gap-3">
         <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"/>
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="faible"/>
         Faible
     </label>  
     <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox">
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="moyen">
         Moyen
     </label>
     <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox">
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="élevé">
         Élevé
     </label>
     <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox">
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="trèsÉlevé">
         Très élevé
     </label>
     <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox">
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="maximal">
         Maximal
     </label>
 </div>
@@ -56,12 +66,15 @@
 <div class="flex items-center gap-3">
     <p>Contre-indication impactant mobilité ?</p>
         <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"/>
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="ouiImpactMobilité"/>
         Oui
     </label>  
     <label class="flex items-center gap-2">
-        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox">
+        <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox"
+        formControlName="nonImpactMobilité">
         Non
     </label>
 </div>
 <div class="pb-4"></div>
+</div>

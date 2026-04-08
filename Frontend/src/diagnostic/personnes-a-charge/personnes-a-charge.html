@@ -1,10 +1,14 @@
+<div [formGroup]="formGroup">
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Personnes à charge</h2>
 </div>
 <div class="pt-4"></div>
 <label class="mr-2" for="entretienDate">Age des enfants et/ou personnes à charge :</label>
-<input class="border-black border-b w-200 p-1 outline-none" type="text" id="entretienDate"/>
+<input class="border-black border-b w-200 p-1 outline-none" type="text" id="entretienDate"
+formControlName="ageDesEnfantsOuPersonnesÀCharge"/>
 <div class="pb-4"></div>
 <label class="mr-2" for="entretienDate">Mode de garde :</label>
-<input class="border-black border-b w-140 p-1 outline-none" type="text" id="entretienDate"/>
+<input class="border-black border-b w-140 p-1 outline-none" type="text" id="entretienDate"
+formControlName="modeDeGarde"/>
 <div class="pb-4"></div>
+</div>

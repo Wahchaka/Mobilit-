@@ -103,6 +103,7 @@ export class DiagnosticContainer {
       autreLogement: new FormControl(false),
       autreLogementTexte: new FormControl("")
     }),
+
     projetPermisConduire: new FormGroup({
       aucun: new FormControl(false),
       permisAnnule: new FormControl(false),
@@ -141,6 +142,77 @@ export class DiagnosticContainer {
       sansEnfant: new FormControl(false),
       enfant: new FormControl(false),
       enfantTexte: new FormControl("")
+    }),
+
+    ressource: new FormGroup({
+      salaire: new FormControl(false),
+      rsa: new FormControl(false),
+      ass: new FormControl(false),
+      are: new FormControl(false),
+      aah: new FormControl(false),
+      sans: new FormControl(false)
+    }),
+
+    AccompagnementSocial: new FormGroup({
+      Département: new FormControl(false),
+      France_Travail: new FormControl(false),
+      CCAS: new FormControl(false),
+      Mission_locale: new FormControl(false),
+      Autre: new FormControl(false),
+      Autre_texte: new FormControl("")
+    }),
+
+    choixLocalisationDomicile: new FormGroup({
+      annéeDArrivéeDansVotreCommuneActuelle: new FormControl(""),
+      choixPersonnel: new FormControl(false),
+      compromis: new FormControl(false),
+      décisionSubie: new FormControl(false),
+      autre: new FormControl(false),
+      autreTexte: new FormControl("")
+    }),
+
+    environnementGeographiqueSocial: new FormGroup({
+      transportEnCommun: new FormControl(false),
+      trains: new FormControl(false),
+      TAD: new FormControl(false),
+      autre: new FormControl(false),
+      autreTexte: new FormControl(""),
+      rien: new FormControl(false)
+    }),
+
+    ProjetDeDemenagement: new FormGroup({
+      non: new FormControl(false),
+      nonMaisEnvisageablePourTrouverUnEmploi: new FormControl(false),
+      uneEnvieUnSouhait: new FormControl(false),
+      ouiCEstUnProjetConcret: new FormControl(false),
+      autre: new FormControl(false),
+      autreTexte: new FormControl("")
+    }),
+
+    anneeArriverFrance: new FormGroup({
+      papiersDIdentitéValide: new FormControl(false),
+      carteDeSéjourValide: new FormControl(false),
+      RécépisséDeDemandeDeTitreDeSéjour: new FormControl(false),
+      aucunDesDocumentsCités: new FormControl(false)
+    }),
+
+    personnesACharge: new FormGroup({
+      ageDesEnfantsOuPersonnesÀCharge: new FormControl(""),
+      modeDeGarde: new FormControl("")
+    }),
+
+    sante: new FormGroup({
+      ouiCSS: new FormControl(false),
+      nonCSS: new FormControl(false),
+      ouiRQTH: new FormControl(false),
+      nonRQTH: new FormControl(false),
+      faible: new FormControl(false),
+      moyen: new FormControl(false),
+      élevé: new FormControl(false),
+      trèsÉlevé: new FormControl(false),
+      maximal: new FormControl(false),
+      ouiImpactMobilité: new FormControl(false),
+      nonImpactMobilité: new FormControl(false)
     })
   })
 
@@ -170,6 +242,38 @@ export class DiagnosticContainer {
 
   get situationFamiliale(): FormGroup {
     return this.form.controls['situationFamiliale'] as FormGroup
+  }
+
+  get ressource(): FormGroup {
+    return this.form.controls['ressource'] as FormGroup
+  }
+
+  get AccompagnementSocial(): FormGroup {
+    return this.form.controls['AccompagnementSocial'] as FormGroup
+  }
+
+  get choixLocalisationDomicile(): FormGroup {
+    return this.form.controls['choixLocalisationDomicile'] as FormGroup
+  }
+
+  get environnementGeographiqueSocial(): FormGroup {
+    return this.form.controls['environnementGeographiqueSocial'] as FormGroup
+  }
+
+  get ProjetDeDemenagement(): FormGroup {
+    return this.form.controls['ProjetDeDemenagement'] as FormGroup
+  }
+
+  get anneeArriverFrance(): FormGroup {
+    return this.form.controls['anneeArriverFrance'] as FormGroup
+  }
+
+  get personnesACharge(): FormGroup {
+    return this.form.controls['personnesACharge'] as FormGroup
+  }
+
+  get sante(): FormGroup {
+    return this.form.controls['sante'] as FormGroup
   }
 
   submit() {

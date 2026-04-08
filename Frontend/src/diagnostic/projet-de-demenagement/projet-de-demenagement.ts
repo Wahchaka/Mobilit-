@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-projet-de-demenagement',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './projet-de-demenagement.html',
   styleUrl: './projet-de-demenagement.css',
 })
 export class ProjetDeDemenagement {
-  autre: boolean = false
-  autreChoixTexte: string | null = null
+  @Input() formGroup!: FormGroup
 }

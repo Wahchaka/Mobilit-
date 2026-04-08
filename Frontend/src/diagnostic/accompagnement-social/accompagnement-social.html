@@ -1,38 +1,39 @@
+<div [formGroup]="formGroup">
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Accompagnement social</h2>
 </div>
 <div class="pt-4"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="Département">
         Département
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="France_Travail">
         France travail
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="CCAS">
         CCAS
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="Mission_locale">
         Mission locale
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
-        AAH
-    </label>
-
-    <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="Autre = !Autre">
+        formControlName="Autre">
         Autre :
-        <input *ngIf="Autre" type="text" (input)="quoi = $any($event.target).value"
+        <input *ngIf="formGroup.get('Autre')?.value" type="text" formControlName="Autre_texte"
         placeholder="Pécisez..."
         class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <div class="pb-4"></div>
+</div>
 </div>

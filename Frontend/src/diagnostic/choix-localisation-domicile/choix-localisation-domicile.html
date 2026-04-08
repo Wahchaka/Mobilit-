@@ -1,32 +1,38 @@
+<div [formGroup]="formGroup">
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Choix de la localisation du domicile actuel</h2>
 </div>
 <div class="pt-4"></div>
 <label class="mr-2" for="communeActuelle">Année d'arrivée dans votre commune actuelle :</label>
-<input class="border-black border-b w-40 p-1 outline-none" type="number" id="communeActuelle"/>
+<input class="border-black border-b w-40 p-1 outline-none" type="number" id="communeActuelle"
+formControlName="annéeDArrivéeDansVotreCommuneActuelle"/>
 <div class="pt-2"></div>
 <div class="flex flex-col gap-3">
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="choixPersonnel">
         Un choix personnel
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="compromis">
         Un compromis
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="décisionSubie">
         Une décision subie
     </label>
 
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="autreChoix =!autreChoix">
+        formControlName="autre">
         Autres :
-        <input *ngIf="autreChoix" type="text"
-        (input)="autreChoixTexte = $any($event.target).value"
+        <input *ngIf="formGroup.get('autre')?.value" type="text"
+        formControlName="autreTexte"
         placeholder="Précisez..."
         class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <div class="pb-4"></div>
+</div>
 </div>

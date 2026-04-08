@@ -1,3 +1,4 @@
+<div [formGroup]="formGroup">
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Environnement geographique et social</h2>
 </div>
@@ -5,30 +6,35 @@
 <div class="flex flex-col gap-3">
     <p class="font-bold">Dans votre commune vous avez accès aux :</p>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="transportEnCommun">
         Transports en commun
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="trains">
         Train
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="TAD">
         TAD
     </label>
 
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
-        (change)="autreChoix = !autreChoix">
+        formControlName="autre">
         Autre :
-        <input *ngIf="autreChoix" type="text"
-        (input)="autreChoixTexte = $any($event.target).value"
+        <input *ngIf="formGroup.get('autre')?.value" type="text"
+        formControlName="autreTexte"
         placeholder="Précisez..."
         class="w-90 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="rien">
         Rien
     </label>
     <div class="pb-4"></div>
+</div>
 </div>

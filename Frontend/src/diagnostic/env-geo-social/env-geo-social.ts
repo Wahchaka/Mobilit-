@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-env-geo-social',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './env-geo-social.html',
   styleUrl: './env-geo-social.css',
 })
 export class EnvGeoSocial {
-  autreChoix: boolean = false
-  autreChoixTexte: string = ""
+  @Input() formGroup!: FormGroup
 }
