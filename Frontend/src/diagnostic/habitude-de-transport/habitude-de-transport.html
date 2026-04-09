@@ -1,185 +1,201 @@
-<div class="bg-gray-600 w-full">
+<div [formGroup]="formGroup">
+  <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Habitude de transport</h2>
-</div>
-<div class="pt-4"></div>
-<div class="w-full border border-black p-4 rounded-sm">
-  <div class="grid grid-cols-3 gap-6">
-    <div *ngFor="let habitude of habitudes; let i = index" class="space-y-4">
-      <p class="font-bold">Habitude {{ i + 1 }} :</p>
-      <div>
-        <div>
-          <p class="font-medium">Mode de transport :</p>
-          <label *ngFor="let item of transports" class="flex items-center gap-2">
-            <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
-          </label>
-          <label class="flex items-center gap-2 mt-2">
-            <input 
-            type="checkbox"
-            [(ngModel)]="habitude.autre" [ngModelOptions]="{standalone: true}"
-            class="accent-blue-600 cursor-pointer">
-            Autre :
-            <input 
-            *ngIf="habitude.autre"
-            [(ngModel)]="habitude.autreValue" [ngModelOptions]="{standalone: true}"
-            type="text"
-            placeholder="Précisez..."
-            class="flex-1 border-b border-black outline-none text-sm">
-          </label>
-          <div div class="border-b border-black mt-2"></div>
+  </div>
+  <div class="pt-4"></div>
+
+  <div class="w-full border border-black p-4 rounded-sm">
+    <div class="grid grid-cols-3 gap-6">
+      <ng-container *ngFor="let _ of habitudes.controls; let i = index">
+        <div class="space-y-4">
+          <p class="font-bold">Habitude {{ i + 1 }} :</p>
+
+          <div [formArrayName]="'habitudes'" >
+            <div [formGroupName]="i">
+              <p class="font-medium">Mode de transport :</p>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="voiture" class="accent-blue-600 cursor-pointer"> Voiture</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="deuxRoues" class="accent-blue-600 cursor-pointer"> 2 roues motorisés</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="bus" class="accent-blue-600 cursor-pointer"> Bus</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="train" class="accent-blue-600 cursor-pointer"> Train</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="veloTrottinette" class="accent-blue-600 cursor-pointer"> Vélo/trottinette</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="marche" class="accent-blue-600 cursor-pointer"> Marches</label>
+              <label class="flex items-center gap-2 mt-2">
+                <input type="checkbox" formControlName="autre" class="accent-blue-600 cursor-pointer">
+                Autre :
+                <input *ngIf="getGroup(habitudes, i).get('autre')?.value"
+                  formControlName="autreValue" type="text" placeholder="Précisez..."
+                  class="flex-1 border-b border-black outline-none text-sm">
+              </label>
+              <div class="border-b border-black mt-2"></div>
+            </div>
+          </div>
+
+          <div [formArrayName]="'frequence'">
+            <div [formGroupName]="i">
+              <p class="font-medium">Fréquence :</p>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="tousLesJoursOuPresque" class="accent-blue-600 cursor-pointer"> Tous les jours ou presque</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="deuxSurTroisJoursParSemaine" class="accent-blue-600 cursor-pointer"> 2/3 jours par semaine</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="unJourParSemaine" class="accent-blue-600 cursor-pointer"> 1 jour/semaine</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="deuxSurTroisJoursParMois" class="accent-blue-600 cursor-pointer"> 2/3 jours par mois</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="unJourParMois" class="accent-blue-600 cursor-pointer"> 1 jour/mois</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="mois" class="accent-blue-600 cursor-pointer"> Moins</label>
+              <div class="border-b border-black mt-2"></div>
+            </div>
+          </div>
+
+          <div [formArrayName]="'perimetre'">
+            <div [formGroupName]="i">
+              <p class="font-medium">Périmètre :</p>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="domicile" class="accent-blue-600 cursor-pointer"> Domicile</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="quartier" class="accent-blue-600 cursor-pointer"> Quartier</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="villeOuCommune" class="accent-blue-600 cursor-pointer"> Ville/commune</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="agglomeration" class="accent-blue-600 cursor-pointer"> Agglomération</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="aireDAttraction" class="accent-blue-600 cursor-pointer"> Aire d'attraction</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="departement" class="accent-blue-600 cursor-pointer"> Département</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="region" class="accent-blue-600 cursor-pointer"> Région</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="france" class="accent-blue-600 cursor-pointer"> France</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="plus" class="accent-blue-600 cursor-pointer"> Plus</label>
+              <div class="border-b border-black mt-2"></div>
+            </div>
+          </div>
+
+          <div [formArrayName]="'motif'">
+            <div [formGroupName]="i">
+              <p class="font-medium">Motif :</p>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="vieProfessionnelle" class="accent-blue-600 cursor-pointer"> Vie professionnelle</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="vieQuotidienne" class="accent-blue-600 cursor-pointer"> Vie quotidienne</label>
+              <label class="flex items-center gap-2"><input type="checkbox" formControlName="vieScolaireEtLoisir" class="accent-blue-600 cursor-pointer"> Vie sociale et loisirs</label>
+              <label class="flex items-center gap-2 mt-2">
+                <input type="checkbox" formControlName="autre" class="accent-blue-600 cursor-pointer">
+                Autre :
+                <input *ngIf="getGroup(motif, i).get('autre')?.value"
+                  formControlName="autreTexte" type="text" placeholder="Précisez..."
+                  class="flex-1 border-b border-black outline-none text-sm">
+              </label>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <div>
-        <p class="font-medium">Fréquence :</p>
-        <label *ngFor="let item of frequences" class="flex items-center gap-2">
-          <input class="accent-blue-600 cursor-pointer" type="radio" name="freq{{i}}"> {{ item }}
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="pt-14"></div>
+
+  <div class="w-full border border-black p-4 rounded-sm">
+    <div class="grid grid-cols-3 gap-6" formArrayName="abonnements">
+      <div *ngFor="let _ of abonnements.controls; let i = index"
+           [formGroupName]="i" class="space-y-4">
+        <p class="font-medium">Abonnement {{ i + 1 }} :</p>
+        <label class="flex items-center gap-2"><input type="checkbox" formControlName="pasAbonnement" class="accent-blue-600 cursor-pointer"> Pas d'abonnement</label>
+        <label class="flex items-center gap-2"><input type="checkbox" formControlName="mensuel" class="accent-blue-600 cursor-pointer"> Mensuel</label>
+        <label class="flex items-center gap-2"><input type="checkbox" formControlName="annuel" class="accent-blue-600 cursor-pointer"> Annuel</label>
+        <label class="flex items-center gap-2">
+          <input type="checkbox" formControlName="tarif" class="accent-blue-600 cursor-pointer">
+          Tarif :
+          <input *ngIf="getGroup(abonnements, i).get('tarif')?.value"
+            formControlName="tarifValue" type="text" placeholder="Combien ?"
+            class="border-b border-black outline-none text-sm">
         </label>
-        <div div class="border-b border-black mt-2"></div>
       </div>
-      <div>
-        <p class="font-medium">Périmètre :</p>
-        <label *ngFor="let item of perimetres" class="flex items-center gap-2">
-          <input class="accent-blue-600 cursor-pointer" type="radio" name="peri{{i}}"> {{ item }}
-        </label>
-        <div div class="border-b border-black mt-2"></div>
-      </div>
-      <div>
-        <div>
-          <p class="font-medium">Motif :</p>
-          <label *ngFor="let item of motifsCheck" class="flex items-center gap-2">
-            <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
-          </label>
-          <label class="flex items-center gap-2 mt-2">
-            <input type="checkbox"
-            [(ngModel)]="motif[i].autre2"
-            [ngModelOptions]="{standalone: true}"
-            class="accent-blue-600 cursor-pointer">
+    </div>
+  </div>
+
+  <div class="pt-14"></div>
+
+  <div class="w-full border border-black p-4 rounded-sm">
+    <div class="grid grid-cols-3 gap-6">
+
+      <ng-container formArrayName="vehicules">
+        <div *ngFor="let _ of vehicules.controls; let i = index"
+             [formGroupName]="i" class="space-y-1">
+          <p class="font-medium">Véhicule {{ i + 1 }} :</p>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="voiture57" class="accent-blue-600 cursor-pointer"> Voiture 5-7</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="voiture2" class="accent-blue-600 cursor-pointer"> Voiture 2</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="voiturette" class="accent-blue-600 cursor-pointer"> Voiturette</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="moto" class="accent-blue-600 cursor-pointer"> Moto</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="scooter" class="accent-blue-600 cursor-pointer"> Scooter, vélomoteur</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="veloConventionnel" class="accent-blue-600 cursor-pointer"> Vélo conventionnel</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="veloElectrique" class="accent-blue-600 cursor-pointer"> Vélo électrique</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="trottinette" class="accent-blue-600 cursor-pointer"> Trottinette</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="pasDeVehicule" class="accent-blue-600 cursor-pointer"> Pas de véhicule</label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" formControlName="autre" class="accent-blue-600 cursor-pointer">
             Autre :
-            <input
-            *ngIf="motif[i].autre2"
-            [(ngModel)]="motif[i].autre2Value" 
-            [ngModelOptions]="{standalone: true}"
-            type="text"
-            placeholder="Précisez..."
-            class="flex-2 border-b border-black outline-none text-sm">
+            <input *ngIf="getGroup(vehicules, i).get('autre')?.value"
+              formControlName="autreValue" type="text" placeholder="Précisez..."
+              class="flex-1 border-b border-black outline-none text-sm">
+          </label>
+          <div class="border-b border-black mt-2"></div>
+        </div>
+      </ng-container>
+
+      <ng-container formArrayName="proprietaires">
+        <div *ngFor="let _ of proprietaires.controls; let i = index"
+             [formGroupName]="i" class="space-y-1">
+          <p class="font-medium">Propriétaire :</p>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="personnelle" class="accent-blue-600 cursor-pointer"> Propriété personnelle</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="menage" class="accent-blue-600 cursor-pointer"> Propriété du ménage</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="conjoint" class="accent-blue-600 cursor-pointer"> Propriété du conjoint</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="parents" class="accent-blue-600 cursor-pointer"> Propriété des parents</label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" formControlName="autre" class="accent-blue-600 cursor-pointer">
+            Autre :
+            <input *ngIf="getGroup(proprietaires, i).get('autre')?.value"
+              formControlName="autreValue" type="text" placeholder="Précisez..."
+              class="flex-1 border-b border-black outline-none text-sm">
+          </label>
+          <div class="border-b border-black mt-2"></div>
+        </div>
+      </ng-container>
+
+      <ng-container formArrayName="disponibilites">
+        <div *ngFor="let _ of disponibilites.controls; let i = index"
+             [formGroupName]="i" class="space-y-1">
+          <p class="font-medium">Disponibilité :</p>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="tousLesJours" class="accent-blue-600 cursor-pointer"> Tous les jours ou presque</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="deuxTroisJoursSemaine" class="accent-blue-600 cursor-pointer"> 2 à 3 jours par semaine</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="unJourSemaine" class="accent-blue-600 cursor-pointer"> 1 jour par semaine</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="deuxTroisJoursMois" class="accent-blue-600 cursor-pointer"> 2 à 3 jours par mois</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="unJourMois" class="accent-blue-600 cursor-pointer"> 1 jour par mois</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="moinsUnJour" class="accent-blue-600 cursor-pointer"> Moins d'un jour</label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" formControlName="autre" class="accent-blue-600 cursor-pointer">
+            Autre :
+            <input *ngIf="getGroup(disponibilites, i).get('autre')?.value"
+              formControlName="autreValue" type="text" placeholder="Précisez..."
+              class="flex-1 border-b border-black outline-none text-sm">
+          </label>
+          <div class="border-b border-black mt-2"></div>
+        </div>
+      </ng-container>
+
+      <ng-container formArrayName="pretALUsages">
+        <div *ngFor="let _ of pretALUsages.controls; let i = index"
+             [formGroupName]="i" class="space-y-1">
+          <p class="font-medium">Prêt à l'usage :</p>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="oui" class="accent-blue-600 cursor-pointer"> Oui</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="stationnement" class="accent-blue-600 cursor-pointer"> Problème de stationnement</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="etatInsatisfaisant" class="accent-blue-600 cursor-pointer"> État insatisfaisant</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="pasAssurance" class="accent-blue-600 cursor-pointer"> Pas d'assurance</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="pasControleTechnique" class="accent-blue-600 cursor-pointer"> Pas de contrôle technique</label>
+          <label class="flex items-center gap-2"><input type="checkbox" formControlName="pasCarteGrise" class="accent-blue-600 cursor-pointer"> Pas de carte grise</label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" formControlName="autre" class="accent-blue-600 cursor-pointer">
+            Autre :
+            <input *ngIf="getGroup(pretALUsages, i).get('autre')?.value"
+              formControlName="autreValue" type="text" placeholder="Précisez..."
+              class="flex-1 border-b border-black outline-none">
           </label>
         </div>
-      </div>
+      </ng-container>
+
     </div>
   </div>
+
+  <div class="mt-14"></div>
+  <label for="complement">Complément d'habitudes :</label>
+  <input formControlName="complementDHabitude"
+    class="border-black border-b w-full p-1 outline-none" type="text" id="complement"/>
+  <div class="pt-4"></div>
 </div>
-<div class="pt-14"></div>
-<div class="w-full border border-black p-4 rounded-sm">
-  <div class="grid grid-cols-3 gap-6">
-    <div *ngFor="let abonnement of abonnements; let i = index" class="space-y-4">
-      <p class="font-medium">Abonnement {{ i + 1 }} :</p>
-      <div>
-      <label *ngFor="let item of abonnementCheck" class="flex items-center gap-2">
-        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
-      </label>
-      <label class="flex items-center gap-2">
-        <input type="checkbox"
-        [(ngModel)]="abonnement.tarif"
-        [ngModelOptions]="{standalone: true}"
-        class="accent-blue-600 cursor-pointer">
-        Tarif :
-        <input 
-        *ngIf="abonnement.tarif" 
-        type="text"
-        placeholder="Combien ?"
-        class="flex- border-b border-black outline-none text-sm">
-      </label>
-    </div>
-    </div>
-  </div>
-</div>
-<div class="pt-14"></div>
-<div class="w-full border border-black p-4 rounded-sm">
-  <div class="grid grid-cols-3 gap-6">
-    <div *ngFor="let vehicule of vehicules; let i = index" class="space-y-1">
-      <p class="font-medium">Véhicule {{ i + 1 }} :</p>
-      <label *ngFor="let item of vehiculeCheck" class="flex items-center gap-2">
-        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
-      </label>
-      <label class="flex items-center gap-2">
-        <input type="checkbox"
-        [(ngModel)]="vehicule.autre3"
-        [ngModelOptions]="{standalone: true}"
-        class="accent-blue-600 cursor-pointer">
-        Autre :
-        <input 
-        *ngIf="vehicule.autre3"
-        [(ngModel)]="vehicule.autre3Value" 
-        [ngModelOptions]="{standalone: true}"
-        type="text"
-        placeholder="Précisez..."
-        class="flex-1 border-b border-black outline-none text-sm">
-      </label>
-      <div class="border-b border-black mt-2"></div>
-    </div>
-    <div *ngFor="let proprio of proprietaire" class="space-y-1">
-      <p class="font-medium">Propriétaire :</p>
-      <label *ngFor="let item of proprietaireCheck" class="flex items-center gap-2">
-        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
-      </label>
-      <label class="flex items-center gap-2">
-        <input type="checkbox"
-        [(ngModel)]="proprio.autre4"
-        [ngModelOptions]="{standalone: true}"
-        class="accent-blue-600 cursor-pointer">
-        Autre :
-        <input 
-        *ngIf="proprio.autre4" 
-        [(ngModel)]="proprio.autre4Value"
-        [ngModelOptions]="{standalone: true}"
-        type="text"
-        placeholder="Précisez..."
-        class="flex-1 border-b border-black outline-none text-sm">
-      </label>
-      <div class="border-b border-black mt-2"></div>
-    </div>
-    <div *ngFor="let dispo of disponibilite" class="space-y-1">
-      <p class="font-medium">Disponibilité :</p>
-      <label *ngFor="let item of disponibiliteCheck" class="flex items-center gap-2">
-        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
-      </label>
-      <label class="flex items-center gap-2">
-        <input type="checkbox"
-        [(ngModel)]="dispo.autre5"
-        [ngModelOptions]="{standalone: true}"
-        class="accent-blue-600 cursor-pointer">
-        Autre :
-        <input 
-        *ngIf="dispo.autre5" 
-        [(ngModel)]="dispo.autre5Value"
-        [ngModelOptions]="{standalone: true}"
-        type="text"
-        placeholder="Précisez..."
-        class="flex-1 border-b border-black outline-none texte-sm">
-      </label>
-      <div class="border-b border-black mt-2"></div>
-    </div>
-    <div *ngFor="let pret of pretALUsage" class="space-y-1">
-      <p class="font-medium">Prêt à l'usage :</p>
-      <label *ngFor="let item of pretALUSageCheck" class="flex items-center gap-2">
-        <input class="accent-blue-600 cursor-pointer" type="checkbox"> {{ item }}
-      </label>
-      <label class="flex items-center gap-2">
-        <input type="checkbox"
-        [(ngModel)]="pret.autre6"
-        [ngModelOptions]="{standalone: true}"
-        class="accent-blue-600 cursor-pointer">
-        Autre :
-        <input type="text"
-        *ngIf="pret.autre6"
-        [(ngModel)]="pret.autre6Value"
-        [ngModelOptions]="{standalone: true}"
-        placeholder="Précisez..."
-        class="flex-1 border-b border-black outline-none">
-      </label>
-    </div>
-  </div>
-</div>
-<div class="mt-14"></div>
-<label for="complement">Complément d'habitudes :</label>
-<input class="border-black border-b w-full p-1 outline-none" type="text" id="complement"/>
-<div class="pt-4"></div>

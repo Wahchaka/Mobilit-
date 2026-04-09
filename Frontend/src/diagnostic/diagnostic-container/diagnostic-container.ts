@@ -16,7 +16,7 @@ import { NavBar } from '../../nav-bar/nav-bar';
 import { PersonnesACharge } from '../personnes-a-charge/personnes-a-charge';
 import { Sante } from '../sante/sante';
 import { HabitudeDeTransport } from '../habitude-de-transport/habitude-de-transport';
-import { FormControl, FormControlName, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormControlName, FormArray, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjetAchat } from "../projet-achat/projet-achat";
 
 @Component({
@@ -213,6 +213,305 @@ export class DiagnosticContainer {
       maximal: new FormControl(false),
       ouiImpactMobilité: new FormControl(false),
       nonImpactMobilité: new FormControl(false)
+    }),
+
+    habitudeDeTransport: new FormGroup({
+      habitudes: new FormArray([
+        new FormGroup({ 
+          voiture: new FormControl(false),
+          deuxRoues: new FormControl(false),
+          bus: new FormControl(false),
+          train: new FormControl(false),
+          veloTrottinette: new FormControl(false),
+          marche: new FormControl(false),
+          autre: new FormControl(false),
+          autreValue: new FormControl("")
+        }),
+
+        new FormGroup({ 
+          voiture: new FormControl(false),
+          deuxRoues: new FormControl(false),
+          bus: new FormControl(false),
+          train: new FormControl(false),
+          veloTrottinette: new FormControl(false),
+          marche: new FormControl(false),
+          autre: new FormControl(false),
+          autreValue: new FormControl(""),
+        }),
+
+        new FormGroup({ 
+          voiture: new FormControl(false),
+          deuxRoues: new FormControl(false),
+          bus: new FormControl(false),
+          train: new FormControl(false),
+          veloTrottinette: new FormControl(false),
+          marche: new FormControl(false),
+          autre: new FormControl(false),
+          autreValue: new FormControl(""),
+        }),
+      ]),
+
+      frequence: new FormArray([
+        new FormGroup({
+          tousLesJoursOuPresque: new FormControl(false),
+          deuxSurTroisJoursParSemaine: new FormControl(false),
+          unJourParSemaine: new FormControl(false),
+          deuxSurTroisJoursParMois: new FormControl(false),
+          unJourParMois: new FormControl(false),
+          mois: new FormControl(false)
+        }),
+        
+        new FormGroup({
+          tousLesJoursOuPresque: new FormControl(false),
+          deuxSurTroisJoursParSemaine: new FormControl(false),
+          unJourParSemaine: new FormControl(false),
+          deuxSurTroisJoursParMois: new FormControl(false),
+          unJourParMois: new FormControl(false),
+          mois: new FormControl(false)
+        }),
+
+        new FormGroup({
+          tousLesJoursOuPresque: new FormControl(false),
+          deuxSurTroisJoursParSemaine: new FormControl(false),
+          unJourParSemaine: new FormControl(false),
+          deuxSurTroisJoursParMois: new FormControl(false),
+          unJourParMois: new FormControl(false),
+          mois: new FormControl(false)
+        })
+      ]),
+
+      perimetre: new FormArray([
+        new FormGroup({
+          domicile: new FormControl(false),
+          quartier: new FormControl(false),
+          villeOuCommune: new FormControl(false),
+          agglomeration: new FormControl(false),
+          aireDAttraction: new FormControl(false),
+          departement: new FormControl(false),
+          region: new FormControl(false),
+          france: new FormControl(false),
+          plus: new FormControl(false)
+        }),
+
+        new FormGroup({
+          domicile: new FormControl(false),
+          quartier: new FormControl(false),
+          villeOuCommune: new FormControl(false),
+          agglomeration: new FormControl(false),
+          aireDAttraction: new FormControl(false),
+          departement: new FormControl(false),
+          region: new FormControl(false),
+          france: new FormControl(false),
+          plus: new FormControl(false)
+        }),
+
+        new FormGroup({
+          domicile: new FormControl(false),
+          quartier: new FormControl(false),
+          villeOuCommune: new FormControl(false),
+          agglomeration: new FormControl(false),
+          aireDAttraction: new FormControl(false),
+          departement: new FormControl(false),
+          region: new FormControl(false),
+          france: new FormControl(false),
+          plus: new FormControl(false)
+        })
+      ]),
+
+      motif: new FormArray([
+        new FormGroup({
+          vieProfessionnelle: new FormControl(false),
+          vieQuotidienne: new FormControl(false),
+          vieScolaireEtLoisir: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        }),
+
+        new FormGroup({
+          vieProfessionnelle: new FormControl(false),
+          vieQuotidienne: new FormControl(false),
+          vieScolaireEtLoisir: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        }),
+
+        new FormGroup({
+          vieProfessionnelle: new FormControl(false),
+          vieQuotidienne: new FormControl(false),
+          vieScolaireEtLoisir: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      abonnements: new FormArray([
+        new FormGroup({ 
+          pasAbonnement: new FormControl(false), 
+          mensuel: new FormControl(false), 
+          annuel: new FormControl(false), 
+          tarif: new FormControl(false), 
+          tarifValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          pasAbonnement: new FormControl(false), 
+          mensuel: new FormControl(false), 
+          annuel: new FormControl(false), 
+          tarif: new FormControl(false), 
+          tarifValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          pasAbonnement: new FormControl(false), 
+          mensuel: new FormControl(false), 
+          annuel: new FormControl(false), 
+          tarif: new FormControl(false), 
+          tarifValue: new FormControl("") 
+        }),
+      ]),
+
+      vehicules: new FormArray([
+        new FormGroup({ 
+          voiture57: new FormControl(false), 
+          voiture2: new FormControl(false), 
+          voiturette: new FormControl(false), 
+          moto: new FormControl(false), 
+          scooter: new FormControl(false), 
+          veloConventionnel: new FormControl(false), 
+          veloElectrique: new FormControl(false), 
+          trottinette: new FormControl(false), 
+          pasDeVehicule: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          voiture57: new FormControl(false), 
+          voiture2: new FormControl(false), 
+          voiturette: new FormControl(false), 
+          moto: new FormControl(false), 
+          scooter: new FormControl(false), 
+          veloConventionnel: new FormControl(false), 
+          veloElectrique: new FormControl(false), 
+          trottinette: new FormControl(false), 
+          pasDeVehicule: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          voiture57: new FormControl(false), 
+          voiture2: new FormControl(false), 
+          voiturette: new FormControl(false), 
+          moto: new FormControl(false), 
+          scooter: new FormControl(false), 
+          veloConventionnel: new FormControl(false), 
+          veloElectrique: new FormControl(false), 
+          trottinette: new FormControl(false), 
+          pasDeVehicule: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        })
+      ]),
+      
+      proprietaires: new FormArray([
+        new FormGroup({ 
+          personnelle: new FormControl(false), 
+          menage: new FormControl(false), 
+          conjoint: new FormControl(false), 
+          parents: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          personnelle: new FormControl(false), 
+          menage: new FormControl(false), 
+          conjoint: new FormControl(false), 
+          parents: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          personnelle: new FormControl(false), 
+          menage: new FormControl(false), 
+          conjoint: new FormControl(false), 
+          parents: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        })
+      ]),
+      disponibilites: new FormArray([
+        new FormGroup({ 
+          tousLesJours: new FormControl(false), 
+          deuxTroisJoursSemaine: new FormControl(false), 
+          unJourSemaine: new FormControl(false), 
+          deuxTroisJoursMois: new FormControl(false), 
+          unJourMois: new FormControl(false), 
+          moinsUnJour: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          tousLesJours: new FormControl(false), 
+          deuxTroisJoursSemaine: new FormControl(false), 
+          unJourSemaine: new FormControl(false), 
+          deuxTroisJoursMois: new FormControl(false), 
+          unJourMois: new FormControl(false), 
+          moinsUnJour: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          tousLesJours: new FormControl(false), 
+          deuxTroisJoursSemaine: new FormControl(false), 
+          unJourSemaine: new FormControl(false), 
+          deuxTroisJoursMois: new FormControl(false), 
+          unJourMois: new FormControl(false), 
+          moinsUnJour: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+      ]),
+
+      pretALUsages: new FormArray([
+        new FormGroup({ 
+          oui: new FormControl(false), 
+          stationnement: new FormControl(false), 
+          etatInsatisfaisant: new FormControl(false), 
+          pasAssurance: new FormControl(false), 
+          pasControleTechnique: new FormControl(false), 
+          pasCarteGrise: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          oui: new FormControl(false), 
+          stationnement: new FormControl(false), 
+          etatInsatisfaisant: new FormControl(false), 
+          pasAssurance: new FormControl(false), 
+          pasControleTechnique: new FormControl(false), 
+          pasCarteGrise: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+
+        new FormGroup({ 
+          oui: new FormControl(false), 
+          stationnement: new FormControl(false), 
+          etatInsatisfaisant: new FormControl(false), 
+          pasAssurance: new FormControl(false), 
+          pasControleTechnique: new FormControl(false), 
+          pasCarteGrise: new FormControl(false), 
+          autre: new FormControl(false), 
+          autreValue: new FormControl("") 
+        }),
+      ]),
+      complementDHabitude: new FormControl("")
     })
   })
 
@@ -274,6 +573,10 @@ export class DiagnosticContainer {
 
   get sante(): FormGroup {
     return this.form.controls['sante'] as FormGroup
+  }
+
+  get habitudeDeTransport(): FormGroup {
+    return this.form.controls['habitudeDeTransport'] as FormGroup
   }
 
   submit() {
