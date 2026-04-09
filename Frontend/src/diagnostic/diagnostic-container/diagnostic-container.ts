@@ -18,12 +18,13 @@ import { Sante } from '../sante/sante';
 import { HabitudeDeTransport } from '../habitude-de-transport/habitude-de-transport';
 import { FormControl, FormControlName, FormArray, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjetAchat } from "../projet-achat/projet-achat";
+import { RepresentationApprehension } from '../representation-apprehension/representation-apprehension';
 
 @Component({
   selector: 'app-diagnostic-container',
   imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
     ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport, FormsModule, ReactiveFormsModule, 
-    ProjetAchat],
+    ProjetAchat, RepresentationApprehension],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true
@@ -602,6 +603,14 @@ export class DiagnosticContainer {
           autreAllocationCAFTexte: new FormControl("")
         })
       ])
+    }),
+
+    RepresentationApprehension: new FormGroup({
+      famille: new FormControl(false),
+      travail: new FormControl(false),
+      demarcheAdmin: new FormControl(false),
+      autre: new FormControl(false),
+      autreTexte: new FormControl("")
     })
   })
 
@@ -671,6 +680,10 @@ export class DiagnosticContainer {
 
   get projetAchat(): FormGroup {
     return this.form.controls['projetAchat'] as FormGroup
+  }
+
+  get RepresentationApprehension(): FormGroup{
+    return this.form.controls['RepresentationApprehension'] as FormGroup
   }
 
   submit() {
