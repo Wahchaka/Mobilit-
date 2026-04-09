@@ -42,7 +42,7 @@ export class ProjetAchat {
     return this.formGroup.get('revenusAllocation') as FormArray
   }
 
-  getGroup(array: FormArray, i: number): FormGroup {
-    return array.at(i) as FormGroup
-  }
+  getGroup(arrayName: string, i: number): FormGroup {
+  return (this.formGroup.get(arrayName) as FormArray).at(i) as FormGroup
+}
 }

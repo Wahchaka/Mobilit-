@@ -562,7 +562,7 @@ export class DiagnosticContainer {
           ouiDettesDansUneAutoEcole: new FormControl(false),
           ouiDettesLieesAuTransportEnCommun: new FormControl(false),
           autre: new FormControl(false),
-          autreTexte: new FormControl(false)
+          autreTexte: new FormControl("")
         })
       ]),
 
@@ -591,7 +591,7 @@ export class DiagnosticContainer {
           AAHAllocationAdulteHandicape: new FormControl(false),
           AEEHAllocationEducationEnfantHandicape: new FormControl(false),
           pensionInvalidite: new FormControl(false),
-          ASIAllocationEducationEnfantHandicape: new FormControl(false),
+          ASIAllocationSupplementaireInvalidite: new FormControl(false),
           pensionRetraite: new FormControl(false),
           ASPAAllocationDeSolidariteAuxPersonnesAgees: new FormControl(false),
           pensionAlimentaire: new FormControl(false),
