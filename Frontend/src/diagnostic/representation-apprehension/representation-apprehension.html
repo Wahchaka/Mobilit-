@@ -2,5 +2,33 @@
   <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Représentation / appréhension</h2>
   </div>
-  <div class="pt-4"></div>
+  <div class="pt-2"></div>
+  <div class="flex flex-col gap-2">
+    <p class="font-bold">Quels sont vos impératifs/priorités en parallèle du projet mobilité ?</p>
+    <label class="flex items-center gap-2">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="famille">
+        Famille
+    </label>
+    <label class="flex items-center gap-2">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="travail">
+        Travail
+    </label>
+    <label class="flex items-center gap-2">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="demarcheAdmin">
+        Démarche administratives
+    </label>
+    <label class="flex items-center gap-2">
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+        formControlName="autre">
+        Autre :
+        <input type="text" *ngIf="formGroup.get('autre')?.value"
+        formControlName="autreTexte"
+        placeholder="Précisez..."
+        class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+    </label>
+  </div>
+  <div class="pb-4"></div>
 </div>
