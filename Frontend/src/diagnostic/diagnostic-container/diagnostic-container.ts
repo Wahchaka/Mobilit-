@@ -512,6 +512,96 @@ export class DiagnosticContainer {
         }),
       ]),
       complementDHabitude: new FormControl("")
+    }),
+
+    projetAchat: new FormGroup({
+      projetAchat: new FormArray([
+        new FormGroup({
+          non: new FormControl(false),
+          voiture5Places: new FormControl(false),
+          voiture2Places: new FormControl(false),
+          voiturette: new FormControl(false),
+          moto: new FormControl(false),
+          scooter: new FormControl(false),
+          veloConventionnel: new FormControl(false),
+          veloElectrique: new FormControl(false),
+          trottinette: new FormControl(false)
+        })
+      ]),
+
+      projetLocation: new FormArray([
+        new FormGroup({
+          non: new FormControl(false),
+          voiture5Places: new FormControl(false),
+          voiture2Places: new FormControl(false),
+          voiturette: new FormControl(false),
+          scooter: new FormControl(false),
+          veloConventionnel: new FormControl(false),
+          veloElectrique: new FormControl(false),
+          trottinette: new FormControl(false)
+        })
+      ]),
+
+      CreditOuEmpruntEstCeUneAlternativePossiblePourVous: new FormArray([
+        new FormGroup({
+          oui: new FormControl(false),
+          ouiSelonLaNecesssite: new FormControl(false),
+          nonManqueDeRessource: new FormControl(false),
+          nonInterditBancaire: new FormControl(false),
+          nonIncidentRemboursement: new FormControl(false),
+          nonRaisonPersonnelle: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      dette: new FormArray([
+        new FormGroup({
+          non: new FormControl(false),
+          ouiPlanDeSurendettement: new FormControl(false),
+          ouiDettesDansUneAutoEcole: new FormControl(false),
+          ouiDettesLieesAuTransportEnCommun: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl(false)
+        })
+      ]),
+
+      decisionBudgetAvezVousLaGestionDeVotrePopreBudget: new FormArray([
+        new FormGroup({
+          oui: new FormControl(false),
+          nonTutelle: new FormControl(false),
+          nonCuratelle: new FormControl(false),
+          nonGestionParUnMembreDuFoyer: new FormControl(false),
+          nonGestionParUnMembreDuFoyerTexte: new FormControl(""),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      revenusAllocation: new FormArray([
+        new FormGroup({
+          aucunRevenu: new FormControl(false),
+          revenuDuMenage: new FormControl(false),
+          salaire: new FormControl(false),
+          RSARevenuDeSolidariteActive: new FormControl(false),
+          ASSAllocationSpecifiqueDeSolidarite: new FormControl(false),
+          CEJ: new FormControl(false),
+          primeDActivite: new FormControl(false),
+          AREAllocationRetourALEmploi: new FormControl(false),
+          AAHAllocationAdulteHandicape: new FormControl(false),
+          AEEHAllocationEducationEnfantHandicape: new FormControl(false),
+          pensionInvalidite: new FormControl(false),
+          ASIAllocationEducationEnfantHandicape: new FormControl(false),
+          pensionRetraite: new FormControl(false),
+          ASPAAllocationDeSolidariteAuxPersonnesAgees: new FormControl(false),
+          pensionAlimentaire: new FormControl(false),
+          allocationVeuvage: new FormControl(false),
+          allocationDemandeurDAsile: new FormControl(false),
+          APL: new FormControl(false),
+          autreAllocationCAF: new FormControl(false),
+          autreAllocationCAFTexte: new FormControl("")
+        })
+      ])
     })
   })
 
@@ -577,6 +667,10 @@ export class DiagnosticContainer {
 
   get habitudeDeTransport(): FormGroup {
     return this.form.controls['habitudeDeTransport'] as FormGroup
+  }
+
+  get projetAchat(): FormGroup {
+    return this.form.controls['projetAchat'] as FormGroup
   }
 
   submit() {
