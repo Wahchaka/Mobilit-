@@ -1,7 +1,7 @@
 <form [formGroup]="form">
     <app-nav-bar></app-nav-bar>
     <div class="flex justify-center items-start h-screen">
-        <div class="w-300 border-3 border-black p-4 rounded-sm">
+        <div class="w-300 border border-black p-4 rounded-sm">
             <h2 class="flex justify-center items-center font-bold pt-10 pb-10">2</h2>
             <h1 class="flex justify-center items-center font-bold text-2xl pb-8 uppercase">Diagnostic Mobilité</h1>
                 <label class="mr-2" for="entretienDate">Date et lieu de l'entretien :</label>
@@ -39,6 +39,8 @@
             <app-habitude-de-transport [formGroup]="habitudeDeTransport"></app-habitude-de-transport>
             <app-projet-achat [formGroup]="projetAchat"></app-projet-achat>
             <app-representation-apprehension [formGroup]="RepresentationApprehension"></app-representation-apprehension>
+            <app-finalites-du-projet-mobilite [formGroup]="FinalitesDuProjetMobilite"></app-finalites-du-projet-mobilite>
+            <app-besoins-exprime-dans-ce-projet [formGroup]="BesoinsExprimeDansCeProjet"></app-besoins-exprime-dans-ce-projet>
             <button type="button" class="text-body bg-white box-border 
             border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading 
             focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-2xl 

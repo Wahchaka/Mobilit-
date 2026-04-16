@@ -19,12 +19,14 @@ import { HabitudeDeTransport } from '../habitude-de-transport/habitude-de-transp
 import { FormControl, FormControlName, FormArray, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjetAchat } from "../projet-achat/projet-achat";
 import { RepresentationApprehension } from '../representation-apprehension/representation-apprehension';
+import { FinalitesDuProjetMobilite } from '../finalites-du-projet-mobilite/finalites-du-projet-mobilite';
+import { BesoinsExprimeDansCeProjet } from '../besoins-exprime-dans-ce-projet/besoins-exprime-dans-ce-projet';
 
 @Component({
   selector: 'app-diagnostic-container',
   imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
-    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport, FormsModule, ReactiveFormsModule, 
-    ProjetAchat, RepresentationApprehension],
+    ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport, FormsModule, ReactiveFormsModule,
+    ProjetAchat, RepresentationApprehension, FinalitesDuProjetMobilite, BesoinsExprimeDansCeProjet],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true
@@ -611,6 +613,196 @@ export class DiagnosticContainer {
       demarcheAdmin: new FormControl(false),
       autre: new FormControl(false),
       autreTexte: new FormControl("")
+    }),
+
+    FinalitesDuProjetMobilite: new FormGroup({
+      meDeplacerPourAllerAuTravail: new FormControl(false),
+      meDeplacerDansLExerciceDeMonTravail: new FormControl(false),
+      meDeplacerPourMaVieQuotidienne: new FormControl(false),
+      repondreAuxExigencesDeLEmployeur: new FormControl(false),
+      repondreAuxExigencesDuPrescripteur: new FormControl(false),
+      repondreAuxExigencesDUnTiersEntourage: new FormControl(false),
+      etreFierDeMoiRealisationPersonnelle: new FormControl(false)
+    }),
+
+    BesoinsExprimeDansCeProjet: new FormGroup({
+      besoins: new FormArray([
+        new FormGroup({
+          meDeplacerMoins: new FormControl(false),
+          meDeplacerPlus: new FormControl(false),
+          meDeplacerPlusLoin: new FormControl(false),
+          meDeplacerPlusLibrement: new FormControl(false),
+          meDeplacerPlusFacilement: new FormControl(false),
+          meDeplacerPlusRapidement: new FormControl(false),
+          meDeplacerPlusEfficacement: new FormControl(false),
+          meDeplacerPlusEcologiquement: new FormControl(false),
+          meDeplacerPlusConfortablement: new FormControl(false),
+          meDeplacerAvecDesBagagesDesPassagers: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl(""),
+        })
+      ]),
+
+      pourVousLaMobiliteCEstPlutotSynonymeDe: new FormArray([
+        new FormGroup({
+          droit: new FormControl(false),
+          autonomieLiberte: new FormControl(false),
+          plaisir: new FormControl(false),
+          nouveaute: new FormControl(false),
+          surete: new FormControl(false),
+          rapprochement: new FormControl(false),
+          autre2: new FormControl(false),
+          autre2Texte: new FormControl(""),
+          devoir: new FormControl(false),
+          contrainte: new FormControl(false),
+          penibilite: new FormControl(false),
+          habitude: new FormControl(false),
+          danger: new FormControl(false),
+          eloignement: new FormControl(false)
+        })
+      ]),
+
+      pourVousLamobiliteRenvoieAVosExperienceDeDeplacement: new FormArray([
+        new FormGroup({
+          quotidienneTravail: new FormControl(false),
+          quotidienneAchatDemarcheActivite: new FormControl(false),
+          touristique: new FormControl(false),
+          residentielsDemenagement: new FormControl(false),
+          autre3: new FormControl(false),
+          autre3Texte: new FormControl("")
+        })
+      ]),
+
+      pourVousLeTempsDeDeplacementRepresente: new FormArray([
+        new FormGroup({
+          unMomentPourDecompresser: new FormControl(false),
+          unMomentPourDiscuterTelephoner: new FormControl(false),
+          unMomentDAttenteTempsPerdu: new FormControl(false),
+          unMomentDeStressDEffort: new FormControl(false),
+          autre4: new FormControl(false),
+          autre4Texte: new FormControl("")
+        })
+      ]),
+
+      avezVousDesCraitesLieesALaMobilite: new FormArray([
+        new FormGroup({
+          sePerdre: new FormControl(false),
+          personnesInconnues: new FormControl(false),
+          environnementRural: new FormControl(false),
+          laNuit: new FormControl(false),
+          jugementRegardeDeLAutre: new FormControl(false),
+          laisserVosEnfants: new FormControl(false),
+          peurDeConduire: new FormControl(false),
+          autre5: new FormControl(false),
+          autre5Texte: new FormControl(""),
+          deplacementSeul: new FormControl(false),
+          endroitsInconnus: new FormControl(false),
+          lieuxDeserts: new FormControl(false),
+          lieuBondes: new FormControl(false),
+          laisserVotreDomicileSansSurveillance: new FormControl(false),
+          laisserVosAnimaux: new FormControl(false),
+        })
+      ]),
+
+      voitureAdjectifs: new FormArray([
+        new FormGroup({
+          rapide: new FormControl(false),
+          lent: new FormControl(false),
+          bonMarche: new FormControl(false),
+          cher: new FormControl(false),
+          pratique: new FormControl(false),
+          pasPratique: new FormControl(false),
+          ecologique: new FormControl(false),
+          polluant: new FormControl(false),
+          sur: new FormControl(false),
+          dangereur: new FormControl(false),
+          confortable: new FormControl(false),
+          inconfortable: new FormControl(false),
+          rendLibre: new FormControl(false),
+          contraignant:new FormControl(false),
+          reposant: new FormControl(false),
+          fatiguant: new FormControl(false),
+          sportif: new FormControl(false),
+          loisir: new FormControl(false),
+          autre6: new FormControl(false),
+          autre6Texte: new FormControl("")
+        })
+      ]),
+
+      transportEnCommunAdjectif: new FormArray([
+        new FormGroup({
+          rapide: new FormControl(false),
+          lent: new FormControl(false),
+          bonMarche: new FormControl(false),
+          cher: new FormControl(false),
+          pratique: new FormControl(false),
+          pasPratique: new FormControl(false),
+          ecologique: new FormControl(false),
+          polluant: new FormControl(false),
+          sur: new FormControl(false),
+          dangereur: new FormControl(false),
+          confortable: new FormControl(false),
+          inconfortable: new FormControl(false),
+          rendLibre: new FormControl(false),
+          contraignant:new FormControl(false),
+          reposant: new FormControl(false),
+          fatiguant: new FormControl(false),
+          sportif: new FormControl(false),
+          loisir: new FormControl(false),
+          autre7: new FormControl(false),
+          autre7Texte: new FormControl("")
+        })
+      ]),
+
+      VeloAdjectif: new FormArray([
+        new FormGroup({
+          rapide: new FormControl(false),
+          lent: new FormControl(false),
+          bonMarche: new FormControl(false),
+          cher: new FormControl(false),
+          pratique: new FormControl(false),
+          pasPratique: new FormControl(false),
+          ecologique: new FormControl(false),
+          polluant: new FormControl(false),
+          sur: new FormControl(false),
+          dangereur: new FormControl(false),
+          confortable: new FormControl(false),
+          inconfortable: new FormControl(false),
+          rendLibre: new FormControl(false),
+          contraignant:new FormControl(false),
+          reposant: new FormControl(false),
+          fatiguant: new FormControl(false),
+          sportif: new FormControl(false),
+          loisir: new FormControl(false),
+          autre8: new FormControl(false),
+          autre8Texte: new FormControl("")
+        })
+      ]),
+
+      marcheAdjectif: new FormArray([
+        new FormGroup({
+          rapide: new FormControl(false),
+          lent: new FormControl(false),
+          bonMarche: new FormControl(false),
+          cher: new FormControl(false),
+          pratique: new FormControl(false),
+          pasPratique: new FormControl(false),
+          ecologique: new FormControl(false),
+          polluant: new FormControl(false),
+          sur: new FormControl(false),
+          dangereur: new FormControl(false),
+          confortable: new FormControl(false),
+          inconfortable: new FormControl(false),
+          rendLibre: new FormControl(false),
+          contraignant:new FormControl(false),
+          reposant: new FormControl(false),
+          fatiguant: new FormControl(false),
+          sportif: new FormControl(false),
+          loisir: new FormControl(false),
+          autre9: new FormControl(false),
+          autre9Texte: new FormControl("")
+        })
+      ])
     })
   })
 
@@ -684,6 +876,14 @@ export class DiagnosticContainer {
 
   get RepresentationApprehension(): FormGroup{
     return this.form.controls['RepresentationApprehension'] as FormGroup
+  }
+
+  get FinalitesDuProjetMobilite(): FormGroup{
+    return this.form.controls['FinalitesDuProjetMobilite'] as FormGroup
+  }
+
+  get BesoinsExprimeDansCeProjet(): FormGroup{
+    return this.form.controls['BesoinsExprimeDansCeProjet'] as FormGroup
   }
 
   submit() {

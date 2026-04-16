@@ -43,6 +43,6 @@ export class ProjetAchat {
   }
 
   getGroup(arrayName: string, i: number): FormGroup {
-  return (this.formGroup.get(arrayName) as FormArray).at(i) as FormGroup
+    return (this.formGroup.get(arrayName) as FormArray).at(i) as FormGroup
 }
 }

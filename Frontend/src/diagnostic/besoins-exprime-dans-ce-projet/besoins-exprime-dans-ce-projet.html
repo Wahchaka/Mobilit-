@@ -1,0 +1,772 @@
+<div [formGroup]="formGroup">
+    <div class="bg-gray-600 w-full">
+        <h2 class="uppercase font-bold text-white pl-2">Besoins exprimé dans ce projet</h2>
+    </div>
+    <div class="pt-4"></div>
+
+    <div class="flex flex-col gap-2">
+        <div [formArrayName]="'besoins'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerMoins">
+                    Me déplacer moins
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerPlus">
+                    Me déplacer plus
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerPlusLoin">
+                    Me déplacer plus loin
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerPlusLibrement">
+                    Me déplacer plus librement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerPlusFacilement">
+                    Me déplacer plus facilement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerPlusRapidement">
+                    Me déplacer plus rapidement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerPlusEfficacement">
+                    Me déplacer plus efficacement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerPlusEcologiquement">
+                    Me déplacer plus écologiquement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerPlusConfortablement">
+                    Me déplacer plus confortablement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="meDeplacerAvecDesBagagesDesPassagers">
+                    Me déplacer avec des bagages, des passagers
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('besoins', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'pourVousLaMobiliteCEstPlutotSynonymeDe'">
+            <div [formGroupName]="0">
+                <p class="font-bold">Pour vous la mobilité c'est plutôt synonyme de ?</p>
+                <div class="pt-2"></div>
+                <div class="grid grid-cols-2">
+                    
+                    <div class="1 flex flex-col gap-2">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="droit">
+                            Droit
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="autonomieLiberte">
+                            Autonomie/liberté
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="plaisir">
+                            Plaisir
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="nouveaute">
+                            Nouveauté
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="surete">
+                            Sureté
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rapprochement">
+                            Rapprochement
+                        </label>
+                    </div>
+
+                    <div class="2 flex flex-col gap-2">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="devoir">
+                            Devoir
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="contrainte">
+                            Contrainte
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="penibilite">
+                            Pénibilité
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="habitude">
+                            Habitude
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="danger">
+                            Danger
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="eloignement">
+                            Éloignement
+                        </label>
+                    </div>
+                </div>
+                <div class="pt-2"></div>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre2">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('pourVousLaMobiliteCEstPlutotSynonymeDe', 0).get('autre2')?.value"
+                    formControlName="autre2Texte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 outline-none">
+                </label>
+                <div class="pt-4"></div>
+            </div>
+        </div>
+        <div [formArrayName]="'pourVousLamobiliteRenvoieAVosExperienceDeDeplacement'">
+            <div [formGroupName]="0">
+                <p class="font-bold">Pour vous la mobilité renvoie à vos expériences de déplacement ?</p>
+                <div class="flex flex-col gap-2">
+                    <div class="pt-1"></div>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="quotidienneTravail">
+                        Quotidiennes : travail 
+                    </label>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="quotidienneAchatDemarcheActivite">
+                        Quotidiennes : achat, démarche, activité 
+                    </label>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="touristique">
+                        Touristiques 
+                    </label>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="residentielsDemenagement">
+                        Résidentiels : déménagement
+                    </label>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="autre3">
+                       Autres :
+                       <input type="text" *ngIf="getGroup('pourVousLamobiliteRenvoieAVosExperienceDeDeplacement', 0).get('autre3')?.value"
+                       formControlName="autre3Texte"
+                       placeholder="Précisez..."
+                       class="w-180 border-b border-black px-2 py-1 outline-none">
+                    </label>
+                </div>
+            </div>  
+        </div>
+        <div [formArrayName]="'pourVousLeTempsDeDeplacementRepresente'">
+            <div [formGroupName]="0">
+                <p class="font-bold">Pour vous le temps de déplacement, représente ?</p>
+                <div class="flex flex-col gap-2">
+                    <div class="pt-1"></div>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="unMomentPourDecompresser">
+                        Un moment pour décompresser
+                    </label>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="unMomentPourDiscuterTelephoner">
+                        Un moment pour discuter, téléphoner
+                    </label>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="unMomentDAttenteTempsPerdu">
+                        Un moment d'attente/temps perdu
+                    </label>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="unMomentDeStressDEffort">
+                        Un moment de stress/d'effort
+                    </label>
+                    <label for="" class="flex items-center gap-2">
+                        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                        formControlName="autre4">
+                       Autres :
+                       <input type="text" *ngIf="getGroup('pourVousLeTempsDeDeplacementRepresente', 0).get('autre4')?.value"
+                       formControlName="autre4Texte"
+                       placeholder="Précisez..."
+                       class="w-180 border-b border-black px-2 py-1 outline-none">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div [formArrayName]="'avezVousDesCraitesLieesALaMobilite'">
+            <div [formGroupName]="0">
+                <p class="font-bold">Avez-vous des craites liées à la mobilité ?</p>
+                <div class="pt-2"></div>
+                <div class="grid grid-cols-2">
+
+                    <div class="1 flex flex-col gap-2">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sePerdre">
+                            Se perdre
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="personnesInconnues">
+                            Personnes inconnues
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="environnementRural">
+                            Environnement rural
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="laNuit">
+                            La nuit
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="jugementRegardeDeLAutre">
+                            Jugement/regard de l'autre
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="laisserVosEnfants">
+                            Laisser vos enfants
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="peurDeConduire">
+                            Peur de conduire
+                        </label>
+                    </div>
+
+                    <div class="2 flex flex-col gap-2">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="deplacementSeul">
+                            Déplacement seul
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="endroitsInconnus">
+                            Endroits inconnus
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="lieuxDeserts">
+                            Lieux déserts
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="lieuBondes">
+                            Lieux bondés
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="laisserVotreDomicileSansSurveillance">
+                            Laisser votre domicile sans surveillance
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="laisserVosAnimaux">
+                            Laisser vos animaux
+                        </label>
+                    </div>
+                </div>
+                <div class="pt-2"></div>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre5">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('avezVousDesCraitesLieesALaMobilite', 0).get('autre5')?.value"
+                    formControlName="autre5Texte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'voitureAdjectifs'">
+            <div [formGroupName]="0">
+                <p class="font-bold">Voiture, adjectif ?</p>
+                <div class="pt-2"></div>
+                <div class="grid grid-cols-2">
+
+                    <div class="1 space-y-3">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rapide">
+                            Rapide
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="lent">
+                            Lent
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="bonMarche">
+                            Bon marché
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="cher">
+                            Cher
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="pratique">
+                            Pratique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="pasPratique">
+                            Pas pratique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="ecologique">
+                            Écologique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="polluant">
+                            Polluant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sur">
+                            Sur
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="dangereur">
+                            Dangereux
+                        </label>
+                    </div>
+
+                    <div class="2 space-y-3">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="confortable">
+                            Confortable
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="inconfortable">
+                            Inconfortable
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rendLibre">
+                            Rend libre
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="contraignant">
+                            Contraignant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="reposant">
+                            Reposant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="fatiguant">
+                            Fatiguant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sportif">
+                            Sportif
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="loisir">
+                            Loisir
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="autre6">
+                            Autres :
+                            <input type="text" *ngIf="getGroup('voitureAdjectifs', 0).get('autre6')?.value"
+                            formControlName="autre6Texte"
+                            placeholder="Précisez..."
+                            class="w-120 border-b border-black px-2 py-1 outline-none">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [formArrayName]="'transportEnCommunAdjectif'">
+            <div [formGroupName]="0">
+                <p class="font-bold">Transport en commun, adjectif ?</p>
+                <div class="pt-2"></div>
+                <div class="grid grid-cols-2">
+
+                    <div class="1 space-y-3">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rapide">
+                            Rapide
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="lent">
+                            Lent
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="bonMarche">
+                            Bon marché
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="cher">
+                            Cher
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="pratique">
+                            Pratique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="pasPratique">
+                            Pas pratique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="ecologique">
+                            Écologique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="polluant">
+                            Polluant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sur">
+                            Sur
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="dangereur">
+                            Dangereux
+                        </label>
+                    </div>
+
+                    <div class="2 space-y-3">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="confortable">
+                            Confortable
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="inconfortable">
+                            Inconfortable
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rendLibre">
+                            Rend libre
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="contraignant">
+                            Contraignant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="reposant">
+                            Reposant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="fatiguant">
+                            Fatiguant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sportif">
+                            Sportif
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="loisir">
+                            Loisir
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="autre7">
+                            Autres :
+                            <input type="text" *ngIf="getGroup('transportEnCommunAdjectif', 0).get('autre7')?.value"
+                            formControlName="autre7Texte"
+                            placeholder="Précisez..."
+                            class="w-120 border-b border-black px-2 py-1 outline-none">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [formArrayName]="'VeloAdjectif'">
+            <div [formGroupName]="0">
+                <p class="font-bold">Vélo, adjectif ?</p>
+                <div class="pt-2"></div>
+                <div class="grid grid-cols-2">
+
+                    <div class="1 space-y-3">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rapide">
+                            Rapide
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="lent">
+                            Lent
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="bonMarche">
+                            Bon marché
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="cher">
+                            Cher
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="pratique">
+                            Pratique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="pasPratique">
+                            Pas pratique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="ecologique">
+                            Écologique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="polluant">
+                            Polluant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sur">
+                            Sur
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="dangereur">
+                            Dangereux
+                        </label>
+                    </div>
+
+                    <div class="2 space-y-3">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="confortable">
+                            Confortable
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="inconfortable">
+                            Inconfortable
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rendLibre">
+                            Rend libre
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="contraignant">
+                            Contraignant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="reposant">
+                            Reposant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="fatiguant">
+                            Fatiguant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sportif">
+                            Sportif
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="loisir">
+                            Loisir
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="autre8">
+                            Autres :
+                            <input type="text" *ngIf="getGroup('VeloAdjectif', 0).get('autre8')?.value"
+                            formControlName="autre8Texte"
+                            placeholder="Précisez..."
+                            class="w-120 border-b border-black px-2 py-1 outline-none">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [formArrayName]="'marcheAdjectif'">
+            <div [formGroupName]="0">
+                <p class="font-bold">Marche, adjectif ?</p>
+                <div class="pt-2"></div>
+                <div class="grid grid-cols-2">
+
+                    <div class="1 space-y-3">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rapide">
+                            Rapide
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="lent">
+                            Lent
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="bonMarche">
+                            Bon marché
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="cher">
+                            Cher
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="pratique">
+                            Pratique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="pasPratique">
+                            Pas pratique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="ecologique">
+                            Écologique
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="polluant">
+                            Polluant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sur">
+                            Sur
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="dangereur">
+                            Dangereux
+                        </label>
+                    </div>
+
+                    <div class="2 space-y-3">
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="confortable">
+                            Confortable
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="inconfortable">
+                            Inconfortable
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="rendLibre">
+                            Rend libre
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="contraignant">
+                            Contraignant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="reposant">
+                            Reposant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="fatiguant">
+                            Fatiguant
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="sportif">
+                            Sportif
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="loisir">
+                            Loisir
+                        </label>
+                        <label for="" class="flex items-center gap-2">
+                            <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                            formControlName="autre9">
+                            Autres :
+                            <input type="text" *ngIf="getGroup('marcheAdjectif', 0).get('autre9')?.value"
+                            formControlName="autre9Texte"
+                            placeholder="Précisez..."
+                            class="w-120 border-b border-black px-2 py-1 outline-none">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
