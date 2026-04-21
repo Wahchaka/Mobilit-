@@ -16,17 +16,18 @@ import { NavBar } from '../../nav-bar/nav-bar';
 import { PersonnesACharge } from '../personnes-a-charge/personnes-a-charge';
 import { Sante } from '../sante/sante';
 import { HabitudeDeTransport } from '../habitude-de-transport/habitude-de-transport';
-import { FormControl, FormControlName, FormArray, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, FormsModule, ReactiveFormsModule, FormArray } from '@angular/forms';
 import { ProjetAchat } from "../projet-achat/projet-achat";
 import { RepresentationApprehension } from '../representation-apprehension/representation-apprehension';
 import { FinalitesDuProjetMobilite } from '../finalites-du-projet-mobilite/finalites-du-projet-mobilite';
 import { BesoinsExprimeDansCeProjet } from '../besoins-exprime-dans-ce-projet/besoins-exprime-dans-ce-projet';
+import { SavoirBouger } from '../savoir-bouger/savoir-bouger';
 
 @Component({
   selector: 'app-diagnostic-container',
   imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
     ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport, FormsModule, ReactiveFormsModule,
-    ProjetAchat, RepresentationApprehension, FinalitesDuProjetMobilite, BesoinsExprimeDansCeProjet],
+    ProjetAchat, RepresentationApprehension, FinalitesDuProjetMobilite, BesoinsExprimeDansCeProjet, SavoirBouger],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true
@@ -802,6 +803,164 @@ export class DiagnosticContainer {
           autre9: new FormControl(false),
           autre9Texte: new FormControl("")
         })
+      ]),
+    }),
+
+    savoirBouger: new FormGroup({
+      ecouteComprehensionOral: new FormArray([
+        new FormGroup({
+          elementaireNiveauAA2Oumoins: new FormControl(false),
+          independantNiveauBB1B2: new FormControl(false),
+          experimenteNiveauCC1EtPlus: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      parlerExpressionOral: new FormArray([
+        new FormGroup({
+          elementaireNiveauAA2Oumoins: new FormControl(false),
+          independantNiveauBB1B2: new FormControl(false),
+          experimenteNiveauCC1EtPlus: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      lireComprehensionEcrite: new FormArray([
+        new FormGroup({
+          elementaireNiveauAA2Oumoins: new FormControl(false),
+          independantNiveauBB1B2: new FormControl(false),
+          experimenteNiveauCC1EtPlus: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      ecrireExpressionEcrite: new FormArray([
+        new FormGroup({
+          elementaireNiveauAA2Oumoins: new FormControl(false),
+          independantNiveauBB1B2: new FormControl(false),
+          experimenteNiveauCC1EtPlus: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      maitreChiffresEtEmploiDutemps: new FormArray([
+        new FormGroup({
+          oui: new FormControl(false),
+          nonDifficultesAvecAudditionSoustraction: new FormControl(false),
+          nonDifficultesAvecMultiplicationDivision: new FormControl(false),
+          nonDifficultesAvecCombinaisonPermutation: new FormControl(false),
+          nonDifficultesAvecChronologie: new FormControl(false),
+          nonDifficultesAvecAgendaOublieRDV: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      difficultesDApprentissage: new FormArray([
+        new FormGroup({
+          non: new FormControl(false),
+          ouiConcentration: new FormControl(false),
+          ouiMémorisation: new FormControl(false),
+          ouiDifficultesDansLesRapportsInterpersonnels: new FormControl(false),
+          ouiBesoinDeGagnerEnAutonomiePourLApprentissage: new FormControl(false),
+          ouiBesoinsDeGagnerEnAssurancePourLApprentissage: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      psychoSensorielPratiqueSportInstrument: new FormArray([
+        new FormGroup({
+          non: new FormControl(false),
+          ouiPratiqueSportActuellement: new FormControl(false),
+          ouiPratiqueSportDansLePasse: new FormControl(false),
+          ouiPratiqueInstrumentActuellement: new FormControl(false),
+          ouiPratiqueInstrumentDansLePasse: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      accesAppareilInformatiquesPersonnels: new FormArray([
+        new FormGroup({
+          aucun: new FormControl(false),
+          smartphone: new FormControl(false),
+          telephonePortableBasique: new FormControl(false),
+          ordinateurFixe: new FormControl(false),
+          ordinateurPortable: new FormControl(false),
+          tablette: new FormControl(false)
+        })
+      ]),
+
+      accesInternet: new FormArray([
+        new FormGroup({
+          non: new FormControl(false),
+          ouiALInterieurDuDomicile: new FormControl(false),
+          ouiALExterieurDuDomicile: new FormControl(false)
+        })
+      ]),
+
+      difficultesAvecMaitriseDesAppareilsInformatiques: new FormArray([
+        new FormGroup({
+          smartphone: new FormControl(false),
+          ordinateur: new FormControl(false),
+          tablette: new FormControl(false),
+          nonAucune: new FormControl(false)
+        })
+      ]),
+
+      difficultesAvecMaitriseInternetApplication: new FormArray([
+        new FormGroup({
+          internetPourOrganisationDesDeplacements: new FormControl(false),
+          internetPourAchatDemarche: new FormControl(false),
+          difficultesPourRechercheDEmplois: new FormControl(false),
+          reseauSociaux: new FormControl(false),
+          aucune: new FormControl(false)
+        })
+      ]),
+
+      eprouvezVousDesDifficultesPourDifferencier: new FormArray([
+        new FormGroup({
+          gaucheDroite: new FormControl(false),
+          pointsCardinaux: new FormControl(false),
+          lesFormes: new FormControl(false),
+          Non: new FormControl(false)
+        })
+      ]),
+
+      eprouvezVousDesDifficultesAVOusRepererAvec: new FormArray([
+        new FormGroup({
+          calculateurDItineraire: new FormControl(false),
+          carteUnPlan: new FormControl(false),
+          lesNumerosDeRuePanneauxDIndication: new FormControl(false),
+          uneTiercePersoneInconnue: new FormControl(false),
+          uneTiercePersoneConnue: new FormControl(false),
+          aucunes: new FormControl(false)
+        })
+      ]),
+
+      commentEstimezVousUnTempsDeTrajet: new FormArray([
+        new FormGroup({
+          facilement: new FormControl(false),
+          difficilement: new FormControl(false),
+          neFaitPas: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      commentEstilezVousLesCoutLiesALaMobilite: new FormArray([
+        new FormGroup({
+          facilement: new FormControl(false),
+          difficilement: new FormControl(false),
+          neFaitPas: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
       ])
     })
   })
@@ -884,6 +1043,10 @@ export class DiagnosticContainer {
 
   get BesoinsExprimeDansCeProjet(): FormGroup{
     return this.form.controls['BesoinsExprimeDansCeProjet'] as FormGroup
+  }
+
+  get savoirBouger(): FormGroup {
+    return this.form.controls['savoirBouger'] as FormGroup
   }
 
   submit() {

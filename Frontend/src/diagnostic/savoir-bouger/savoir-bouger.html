@@ -1,0 +1,175 @@
+<div [formGroup]="formGroup">
+    <div class="bg-gray-600 w-full">
+        <h2 class="uppercase font-bold text-white pl-2">Communiquer</h2>
+    </div>
+    <div class="pt-4"></div>
+    <div class="flex flex-col gap-2">
+        <div [formArrayName]="'ecouteComprehensionOral'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Écoute / compréhension orale ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="elementaireNiveauAA2Oumoins">
+                    Élémentaire Niveau A (A2 ou moins)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="independantNiveauBB1B2">
+                    Élémentaire Niveau B (B1 ou B2)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="experimenteNiveauCC1EtPlus">
+                    Élémentaire Niveau C (C1 et plus)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('ecouteComprehensionOral', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+
+        <div [formArrayName]="'parlerExpressionOral'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Parler / expression orale ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="elementaireNiveauAA2Oumoins">
+                    Élémentaire Niveau A (A2 ou moins)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="independantNiveauBB1B2">
+                    Élémentaire Niveau B (B1 ou B2)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="experimenteNiveauCC1EtPlus">
+                    Élémentaire Niveau C (C1 et plus)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('parlerExpressionOral', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+
+        <div [formArrayName]="'lireComprehensionEcrite'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Lire / compréhension écrite ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="elementaireNiveauAA2Oumoins">
+                    Élémentaire Niveau A (A2 ou moins)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="independantNiveauBB1B2">
+                    Élémentaire Niveau B (B1 ou B2)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="experimenteNiveauCC1EtPlus">
+                    Élémentaire Niveau C (C1 et plus)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('lireComprehensionEcrite', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'ecrireExpressionEcrite'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Écrire / expression écrite ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="elementaireNiveauAA2Oumoins">
+                    Élémentaire Niveau A (A2 ou moins)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="independantNiveauBB1B2">
+                    Élémentaire Niveau B (B1 ou B2)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="experimenteNiveauCC1EtPlus">
+                    Élémentaire Niveau C (C1 et plus)
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('ecrireExpressionEcrite', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'maitreChiffresEtEmploiDutemps'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Maîtrise chiffres et emploi du temps ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="oui">
+                    Oui
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="nonDifficultesAvecAudditionSoustraction">
+                    Non, difficultés avec l'addition et la soustraction
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="nonDifficultesAvecMultiplicationDivision">
+                    Non, difficultés avec la multiplication et la division
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="nonDifficultesAvecCombinaisonPermutation">
+                    Non, difficultés avec combinaison et permutation
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="nonDifficultesAvecChronologie">
+                    Non, difficultés avec chronologie
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="nonDifficultesAvecAgendaOublieRDV">
+                    Non, difficultés avec agenda ou oublie de RDV
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('maitreChiffresEtEmploiDutemps', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'difficultesDApprentissage'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Difficultés d'apprentissage ?</p>
+            </div>
+        </div>
+    </div>
+</div>
