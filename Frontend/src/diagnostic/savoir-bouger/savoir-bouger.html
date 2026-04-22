@@ -169,6 +169,403 @@
         <div [formArrayName]="'difficultesDApprentissage'">
             <div [formGroupName]="0" class="flex flex-col gap-2">
                 <p class="font-bold">Difficultés d'apprentissage ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="non">
+                    Non
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiConcentration">
+                    Oui, concentration
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiMémorisation">
+                    Oui, mémorisation
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiDifficultesDansLesRapportsInterpersonnels">
+                    Oui, difficultés dans les rapports interpersonnels
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiBesoinDeGagnerEnAutonomiePourLApprentissage">
+                    Oui, besoin de gagner en autonomie pour l'apprentissage
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiBesoinsDeGagnerEnAssurancePourLApprentissage">
+                    Oui, besoin de gagner en assurance pour l'apprentissage
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('difficultesDApprentissage', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'psychoSensorielPratiqueSportInstrument'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Psycho-sensoriel, pratique sport/instrument ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="non">
+                    Non
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiPratiqueSportActuellement">
+                    Oui, pratique sport actuellement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiPratiqueSportDansLePasse">
+                    Oui, pratique sport dans le passé
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiPratiqueInstrumentActuellement">
+                    Oui, pratique instrument actuellement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiPratiqueInstrumentDansLePasse">
+                    Oui, pratique instrument dans le passé
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('psychoSensorielPratiqueSportInstrument', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'accesAppareilInformatiquesPersonnels'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Accès appareils informatiques personnels ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="aucun">
+                    Aucun
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="smartphone">
+                    Smartphone
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="telephonePortableBasique">
+                    Téléphone portable basique
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ordinateurFixe">
+                    Ordinateur fixe
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ordinateurPortable">
+                    Ordinateur portable
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="tablette">
+                    Tablette
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('accesAppareilInformatiquesPersonnels', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'accesInternet'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Accès internet ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="non">
+                    Non
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiALInterieurDuDomicile">
+                    Oui, à l'intérieur du domicile
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ouiALExterieurDuDomicile">
+                    Oui, à l'extérieur du domicile
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'difficultesAvecMaitriseDesAppareilsInformatiques'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Difficultés avec maîtrise des appareils informatiques ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="smartphone">
+                    Smartphone
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="ordinateur">
+                    Ordinateur
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="tablette">
+                    Tablette
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="nonAucune">
+                    Non, aucune
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'difficultesAvecMaitriseInternetApplication'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Difficultés avec maîtrise internet/application ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="internetPourOrganisationDesDeplacements">
+                    Internet pour l'organisation des déplacements
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="internetPourAchatDemarche">
+                    Internet pour l'achats/démarches
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="difficultesPourRechercheDEmplois">
+                    Difficultés pour la recherche d'emplois
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="reseauSociaux">
+                    Réseaux sociaux
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="aucune">
+                    Aucune
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'eprouvezVousDesDifficultesPourDifferencier'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Éprouvez-vous des difficultés pour différencier ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="gaucheDroite">
+                    Gauche/Droite
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="pointsCardinaux">
+                    Points cardinaux
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="lesFormes">
+                    Les formes
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('eprouvezVousDesDifficultesPourDifferencier', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="Non">
+                    Non
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'eprouvezVousDesDifficultesAVOusRepererAvec'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Éprouvez-vous des difficultés à vous repérer avec ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="calculateurDItineraire">
+                    Calculateur d'itinéraire
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="carteUnPlan">
+                    Carte ou plan
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="lesNumerosDeRuePanneauxDIndication">
+                    Les numéros de rue/panneaux d'indication
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="uneTiercePersoneInconnue">
+                    Une tierce personne inconnue
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="uneTiercePersoneConnue">
+                    Une tierce personne connue
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="aucunes">
+                    Aucunes
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'commentEstimezVousUnTempsDeTrajet'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Comment estimez-vous un temps de trajet ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="facilement">
+                    Facilement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="difficilement">
+                    Difficilement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="neFaitPas">
+                    Ne fait pas
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('commentEstimezVousUnTempsDeTrajet', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'commentEstilezVousLesCoutLiesALaMobilite'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Comment estimez-vous les coûts liés à la mobilité ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="facilement">
+                    Facilement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="difficilement">
+                    Difficilement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="neFaitPas">
+                    Ne fait pas
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('commentEstilezVousLesCoutLiesALaMobilite', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'commentEstimezVousUneDistance'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Comment estimez-vous une distance ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="facilement">
+                    Facilement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="difficilement">
+                    Difficilement
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="neFaitPas">
+                    Ne fait pas
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('commentEstimezVousUneDistance', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+            </div>
+        </div>
+        <div [formArrayName]="'commentpreparezVousVosTrajetsItinéraires'">
+            <div [formGroupName]="0" class="flex flex-col gap-2">
+                <p class="font-bold">Comment préparez-vous vos trajets et itinéraires ?</p>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="avecUneCarteUnPlan">
+                    Avec une carte ou un plan
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="avecDesHorairesDeTransport">
+                    Avec des horaires de transport
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="avecInternetParQuelBiais">
+                    Avec Internet : par quel biais ?
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="avecUnDepartEnAvance">
+                    Avec un départ en avance
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="avecUnTrajetDeReperageEnAvance">
+                    Avec un trajet de repérage en avance
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="autre">
+                    Autres :
+                    <input type="text" *ngIf="getGroup('commentpreparezVousVosTrajetsItinéraires', 0).get('autre')?.value"
+                    formControlName="autreTexte"
+                    placeholder="Précisez..."
+                    class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
+                </label>
+                <label for="" class="flex items-center gap-2">
+                    <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
+                    formControlName="aucun">
+                    Aucun
+                </label>
             </div>
         </div>
     </div>

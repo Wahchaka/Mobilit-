@@ -892,7 +892,9 @@ export class DiagnosticContainer {
           telephonePortableBasique: new FormControl(false),
           ordinateurFixe: new FormControl(false),
           ordinateurPortable: new FormControl(false),
-          tablette: new FormControl(false)
+          tablette: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
         })
       ]),
 
@@ -928,6 +930,8 @@ export class DiagnosticContainer {
           gaucheDroite: new FormControl(false),
           pointsCardinaux: new FormControl(false),
           lesFormes: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl(""),
           Non: new FormControl(false)
         })
       ]),
@@ -960,6 +964,29 @@ export class DiagnosticContainer {
           neFaitPas: new FormControl(false),
           autre: new FormControl(false),
           autreTexte: new FormControl("")
+        })
+      ]),
+
+      commentEstimezVousUneDistance: new FormArray([
+        new FormGroup({
+          facilement: new FormControl(false),
+          difficilement: new FormControl(false),
+          neFaitPas: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl("")
+        })
+      ]),
+
+      commentpreparezVousVosTrajetsItinéraires: new FormArray([
+        new FormGroup({
+          avecUneCarteUnPlan: new FormControl(false),
+          avecDesHorairesDeTransport: new FormControl(false),
+          avecInternetParQuelBiais: new FormControl(false),
+          avecUnDepartEnAvance: new FormControl(false),
+          avecUnTrajetDeReperageEnAvance: new FormControl(false),
+          autre: new FormControl(false),
+          autreTexte: new FormControl(""),
+          aucun: new FormControl(false)
         })
       ])
     })
