@@ -1,0 +1,20 @@
+<div [formGroup]="formGroup">
+    <div class="pt-22"></div>
+    <label for="dateEtLieuDeLEntretien" class="mr-2">Date et lieu de l'entretien :</label>
+    <input type="text" class="border-black border-b w-220 outline-none" formControlName="dateEtLieuDeLEntretien"/>
+    <div class="pb-8"></div>
+    <label for="prescripteur" class="mr-2">Prescripteur :</label>
+    <input type="text" class="border-black border-b w-220 outline-none" formControlName="prescripteur"/>
+    <div class="pb-8"></div>
+    <div class="flex">
+        <div>
+            <label for="nomDuConseiller" class="mr-2">Nom :</label>
+            <input type="text" class="border-black border-b w-105 p-1 mr-6 outline-none" formControlName="nomDuConseiller"/>
+        </div>
+        <div>
+            <label for="telephone" class="mr-2">Téléphone :</label>
+            <input type="text" class="border-black border-b w-105 p-1 outline-none" formControlName="telephone"/>
+        </div>
+    </div>
+    <div class="pb-4"></div>
+</div>

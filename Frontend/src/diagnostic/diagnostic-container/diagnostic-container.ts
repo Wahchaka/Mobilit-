@@ -22,12 +22,14 @@ import { RepresentationApprehension } from '../representation-apprehension/repre
 import { FinalitesDuProjetMobilite } from '../finalites-du-projet-mobilite/finalites-du-projet-mobilite';
 import { BesoinsExprimeDansCeProjet } from '../besoins-exprime-dans-ce-projet/besoins-exprime-dans-ce-projet';
 import { SavoirBouger } from '../savoir-bouger/savoir-bouger';
+import { InfoDebut } from '../info-debut/info-debut';
+import { Separateur } from '../separateur/separateur';
 
 @Component({
   selector: 'app-diagnostic-container',
   imports: [DiagnosticCoordonness, StatusEmploi, StatusMobilite, ProjetPermisDeConduire, NiveauEtude, SituationFamiliale, Ressources, AccompagnementSocial, SituationLogement,
     ChoixLocalisationDomicile, EnvGeoSocial, ProjetDeDemenagement, AnneeArriverFrance, NavBar, PersonnesACharge, Sante, HabitudeDeTransport, FormsModule, ReactiveFormsModule,
-    ProjetAchat, RepresentationApprehension, FinalitesDuProjetMobilite, BesoinsExprimeDansCeProjet, SavoirBouger],
+    ProjetAchat, RepresentationApprehension, FinalitesDuProjetMobilite, BesoinsExprimeDansCeProjet, SavoirBouger, InfoDebut, Separateur],
   templateUrl: './diagnostic-container.html',
   styleUrl: './diagnostic-container.css',
   standalone: true
@@ -989,6 +991,13 @@ export class DiagnosticContainer {
           aucun: new FormControl(false)
         })
       ])
+    }),
+
+    InfoDebut: new FormGroup({
+      dateEtLieuDeLEntretien: new FormControl(""),
+      prescripteur: new FormControl(""),
+      nomDuConseiller: new FormControl(""),
+      telephone: new FormControl(""),
     })
   })
 
@@ -1074,6 +1083,10 @@ export class DiagnosticContainer {
 
   get savoirBouger(): FormGroup {
     return this.form.controls['savoirBouger'] as FormGroup
+  }
+
+  get InfoDebut(): FormGroup{
+    return this.form.controls['InfoDebut'] as FormGroup
   }
 
   submit() {
