@@ -24,6 +24,7 @@ import { BesoinsExprimeDansCeProjet } from '../besoins-exprime-dans-ce-projet/be
 import { SavoirBouger } from '../savoir-bouger/savoir-bouger';
 import { InfoDebut } from '../info-debut/info-debut';
 import { Separateur } from '../separateur/separateur';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-diagnostic-container',
@@ -35,10 +36,14 @@ import { Separateur } from '../separateur/separateur';
   standalone: true
 })
 export class DiagnosticContainer {
+
+  constructor(private http: HttpClient) {}
+
   form = new FormGroup({
     coordonnees: new FormGroup({
       nomPrenom: new FormControl(""),
       dateNaissance: new FormControl(""),
+      age: new FormControl(""),
       adresse: new FormControl(""),
       codePostal: new FormControl(""),
       ville: new FormControl(""),
@@ -77,6 +82,8 @@ export class DiagnosticContainer {
     }),
 
     niveauDEtudes: new FormGroup({
+      etranger: new FormControl(false),
+      etrangerTexte: new FormControl(""),
       niveau3: new FormControl(false),
       niveau3Texte: new FormControl(""),
       niveau4: new FormControl(false),
@@ -998,6 +1005,8 @@ export class DiagnosticContainer {
       prescripteur: new FormControl(""),
       nomDuConseiller: new FormControl(""),
       telephone: new FormControl(""),
+      structure: new FormControl(""),
+      raison: new FormControl("")
     })
   })
 
@@ -1090,6 +1099,10 @@ export class DiagnosticContainer {
   }
 
   submit() {
-    console.log(this.form.value)
+    this.http.post('http://localhost:3000/diagnostic/save', this.form.value)
+    .subscribe({
+      next: () => console.log("Sauvegarde réussie"),
+      error: (error) => console.error("Erreur lors de la sauvegarde :", error)
+    })
   }
 }

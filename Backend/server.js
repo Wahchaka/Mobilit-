@@ -14,6 +14,10 @@ app.use(cors())
 
 app.use(errorHandling)
 
+const diagnosticRoutes = require("./Routes/diagnosticRoutes")
+
+app.use("/diagnostic", diagnosticRoutes)
+
 app.listen(port, () => {
     console.log(`Serveur lancer : http://localhost:${port}`)
 })
