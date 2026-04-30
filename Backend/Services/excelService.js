@@ -1,15 +1,12 @@
-const XLSX = require('xlsx')       // Importe la librairie SheetJS pour manipuler les fichiers Excel
-const path = require('path')       // Importe le module Node.js pour gérer les chemins de fichiers
-const fs = require('fs')           // Importe le module Node.js pour lire/écrire sur le disque
+const XLSX = require('xlsx')
+const path = require('path')
+const fs = require('fs')
 
-// Construit le chemin absolu vers votre fichier Excel
-// __dirname = le dossier où se trouve ce fichier JS
-// "../data/ExcelFile.xlsx" = remonte d'un dossier puis va dans data/
 const filePath = path.join(__dirname, "../data/ExcelFile.xlsx")
 
-const dirPath = path.join(__dirname, "../data")  // Chemin vers le dossier "data"
+const dirPath = path.join(__dirname, "../data")
 if(!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath)  // Crée le dossier "data" s'il n'existe pas déjà
+    fs.mkdirSync(dirPath)
 }
 
 function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.value)
@@ -22,11 +19,8 @@ function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.val
         worksheet = workbook.Sheets['Diagnostics']  // On récupère l'onglet nommé 'Diagnostics'
     }
     else {
-        workbook = XLSX.utils.book_new()   // Si non, on crée un nouveau fichier Excel vide
+        workbook = XLSX.utils.book_new()
         worksheet = XLSX.utils.aoa_to_sheet([
-            // aoa = "array of arrays", ici vous définissez la ligne d'en-tête
-            // C'est ici que vous mettez les noms de vos colonnes
-            // Exemple : ['Nom', 'Prénom', 'Email', ...]
             ['Nom / prénom',
             'Date de naissance',
             'Age',
@@ -41,7 +35,6 @@ function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.val
             'structure',
             'raison',]
         ])
-        // Ajoute l'onglet au fichier en le nommant 'Diagnostics'
         XLSX.utils.book_append_sheet(workbook, worksheet, 'Diagnostics')
     }
 
@@ -74,7 +67,7 @@ function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.val
     ].filter(Boolean).join(", ")
 
     const structure = [
-        data.AccompagnementSocial?.Département ? "Département" : null,
+        data.AccompagnementSocial?.Département ? "Dpt" : null,
         data.AccompagnementSocial?.France_Travail ? "France Travail" : null,
         data.AccompagnementSocial?.CCAS ? "CCAS" : null,
         data.AccompagnementSocial?.Mission_locale ? "MILO" : null,
@@ -82,9 +75,6 @@ function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.val
     ].filter(Boolean).join(", ")
 
     const newRow = [
-        // C'est ici que vous mettez les valeurs à insérer
-        // L'ordre doit correspondre exactement à l'ordre des colonnes définies au-dessus
-        // Exemple : data.coordonnees.nomPrenom, data.coordonnees.email, ...
         data.coordonnees?.nomPrenom,
         data.coordonnees?.dateNaissance,
         data.coordonnees?.age,
@@ -100,14 +90,15 @@ function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.val
         data.infoDebut?.raison
     ]
 
-    // Ajoute la nouvelle ligne à la fin du tableau
     // origin: -1 signifie "ajoute après la dernière ligne existante"
-    XLSX.utils.sheet_add_aoa(worksheet, [newRow], { origin: -1 })
+    XLSX.utils.sheet_add_aoa(worksheet, [newRow], { 
+        origin: -1 
+    })
 
     // Sauvegarde le fichier sur le disque (écrase l'ancien avec les nouvelles données)
     XLSX.writeFile(workbook, filePath)
 }
 
 module.exports = {
-    saveDiagnostic   // Exporte la fonction pour pouvoir l'utiliser dans le controller
+    saveDiagnostic
 }

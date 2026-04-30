@@ -7,6 +7,11 @@ export const routes: Routes = [
             import("../diagnostic/diagnostic-container/diagnostic-container").then((m) => m.DiagnosticContainer)
     },
     {
+        path: "stockageDiagnostic",
+        loadComponent:() =>
+            import("../stockageDiagno/stockage-diagno-container/stockage-diagno-container").then((m) => m.StockageDiagnoContainer)
+    },
+    {
         path: "",
         redirectTo: "/diagnostic",
         pathMatch: "full"
