@@ -90,12 +90,10 @@ function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.val
         data.InfoDebut?.raison
     ]
 
-    // origin: -1 signifie "ajoute après la dernière ligne existante"
     XLSX.utils.sheet_add_aoa(worksheet, [newRow], { 
         origin: -1 
     })
 
-    // Sauvegarde le fichier sur le disque (écrase l'ancien avec les nouvelles données)
     XLSX.writeFile(workbook, filePath)
 }
 
