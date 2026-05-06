@@ -9,14 +9,13 @@ if(!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath)
 }
 
-function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.value)
+function saveDiagnostic(data) {
     let workbook    // Représente le fichier Excel entier
     let worksheet   // Représente un onglet dans ce fichier
 
-    // Vérifie si le fichier Excel existe déjà sur le disque
     if (fs.existsSync(filePath)) {
-        workbook = XLSX.readFile(filePath)          // Si oui, on l'ouvre
-        worksheet = workbook.Sheets['Diagnostics']  // On récupère l'onglet nommé 'Diagnostics'
+        workbook = XLSX.readFile(filePath)
+        worksheet = workbook.Sheets['Diagnostics']
     }
     else {
         workbook = XLSX.utils.book_new()
