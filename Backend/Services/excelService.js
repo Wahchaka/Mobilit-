@@ -84,10 +84,10 @@ function saveDiagnostic(data) {   // data = ce que Angular vous envoie (form.val
         data.sante.ouiRQTH ? "Oui" : "Non",
         minimasSocio,
         niveauEtude,
-        data.infoDebut?.dateEtLieuDeLEntretien,
-        data.infoDebut?.prescripteur,
+        data.InfoDebut?.dateEtLieuDeLEntretien,
+        data.InfoDebut?.prescripteur,
         structure,
-        data.infoDebut?.raison
+        data.InfoDebut?.raison
     ]
 
     // origin: -1 signifie "ajoute après la dernière ligne existante"
