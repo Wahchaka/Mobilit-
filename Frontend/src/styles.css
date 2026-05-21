@@ -91,7 +91,7 @@
         border-bottom: 1px solid black !important;
         width: 40% !important;
         max-width: none !important;
-        background: transparent !important;
+        background: transparent !important; 
         outline: none !important;
         font-size: 12px !important;
         overflow: visible !important;
