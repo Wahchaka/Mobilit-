@@ -1105,4 +1105,8 @@ export class DiagnosticContainer {
       error: (error) => console.error("Erreur lors de la sauvegarde :", error)
     })
   }
+
+  imprimer() {
+    window.print()
+  }
 }

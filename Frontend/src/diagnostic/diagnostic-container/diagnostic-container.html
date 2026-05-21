@@ -27,7 +27,10 @@
             <app-besoins-exprime-dans-ce-projet [formGroup]="BesoinsExprimeDansCeProjet"></app-besoins-exprime-dans-ce-projet>
             <app-savoir-bouger [formGroup]="savoirBouger"></app-savoir-bouger>
             <app-separateur></app-separateur>
-            <div class="flex justify-end">
+            <div class="flex justify-end gap-3">
+                <button type="button"
+                class="cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded hover:scale-105 active:scale-95"
+                (click)="imprimer()">Imprimer la fiche</button>
                 <button type="button"
                 class="cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded hover:scale-105 active:scale-95"
                 (click)="submit()">Valider les informations</button>

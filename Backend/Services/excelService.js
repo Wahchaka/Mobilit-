@@ -1,40 +1,42 @@
-const XLSX = require('xlsx')
+const ExcelJS = require('exceljs')
 const path = require('path')
 const fs = require('fs')
+const os = require('os')
 
-const filePath = path.join(__dirname, "../data/ExcelFile.xlsx")
+const FILE_NAME = 'Diagnostics_mobilité_2026.xlsx'
+const filePath = path.join(os.homedir(), 'Desktop', FILE_NAME)
 
-const dirPath = path.join(__dirname, "../data")
-if(!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath)
-}
+const HEADERS = [
+    'Nom / prénom', 'Date de naissance', 'Age', 'Situation', 'Enfants',
+    'Ville', 'RQTH', 'Minima sociaux', 'Niveau de formation',
+    'Date de prescription', 'Prescripteur', 'Structure', 'Raison'
+]
 
-function saveDiagnostic(data) {
-    let workbook    // Représente le fichier Excel entier
-    let worksheet   // Représente un onglet dans ce fichier
+async function saveDiagnostic(data) {
+    const workbook = new ExcelJS.Workbook()
 
     if (fs.existsSync(filePath)) {
-        workbook = XLSX.readFile(filePath)
-        worksheet = workbook.Sheets['Diagnostics']
+        // Lit le fichier existant EN PRÉSERVANT tout le formatage
+        await workbook.xlsx.readFile(filePath)
     }
-    else {
-        workbook = XLSX.utils.book_new()
-        worksheet = XLSX.utils.aoa_to_sheet([
-            ['Nom / prénom',
-            'Date de naissance',
-            'Age',
-            'Situation',
-            'Enfants',
-            'Ville',
-            'RQTH',
-            'minima socio',
-            'Niveau de formation',
-            'Date de prescription',
-            'Prescripteur',
-            'structure',
-            'raison',]
-        ])
-        XLSX.utils.book_append_sheet(workbook, worksheet, 'Diagnostics')
+
+    let worksheet = workbook.getWorksheet('Diagnostics')
+
+    if (!worksheet) {
+        // Création de l'onglet + en-têtes seulement si il n'existe pas encore
+        worksheet = workbook.addWorksheet('Diagnostics')
+
+        const headerRow = worksheet.addRow(HEADERS)
+        headerRow.eachCell(cell => {
+            cell.font = { bold: true }
+            cell.fill = {
+                type: 'pattern',
+                pattern: 'solid',
+                fgColor: { 
+                    argb: 'FFD9E1F2' 
+                }
+            }
+        })
     }
 
     const minimasSocio = [
@@ -53,7 +55,7 @@ function saveDiagnostic(data) {
         data.niveauDEtudes?.niveau5 ? "Niveau 5" : null,
         data.niveauDEtudes?.niveau6 ? "Niveau 6" : null,
         data.niveauDEtudes?.niveau7 ? "Niveau 7" : null,
-        data.niveauDEtudes?.niveau8 ? "Niveau 8" : null
+        data.niveauDEtudes?.niveau8 ? "Niveau 8" : null,
     ].filter(Boolean).join(", ")
 
     const situation = [
@@ -61,41 +63,37 @@ function saveDiagnostic(data) {
         data.situationFamiliale?.divorcé ? "Divorcé" : null,
         data.situationFamiliale?.celib ? "Célibataire" : null,
         data.situationFamiliale?.marié ? "Marié" : null,
-        data.situationFamiliale?.sansEnfant ? "0" : null,
-        data.situationFamiliale?.enfantTexte ? data.situationFamiliale.enfantTexte : null
     ].filter(Boolean).join(", ")
+
+    const enfants = data.situationFamiliale?.sansEnfant ? "0" : data.situationFamiliale?.enfantTexte ?? ""
 
     const structure = [
         data.AccompagnementSocial?.Département ? "Dpt" : null,
         data.AccompagnementSocial?.France_Travail ? "France Travail" : null,
         data.AccompagnementSocial?.CCAS ? "CCAS" : null,
         data.AccompagnementSocial?.Mission_locale ? "MILO" : null,
-        data.AccompagnementSocial?.Autre_Texte ? data.AccompagnementSocial.Autre_Texte : null,
+        data.AccompagnementSocial?.Autre_Texte ?? null,
     ].filter(Boolean).join(", ")
 
-    const newRow = [
+    worksheet.addRow([
         data.coordonnees?.nomPrenom,
         data.coordonnees?.dateNaissance,
         data.coordonnees?.age,
         situation,
-        situation,
+        enfants,
         data.coordonnees?.ville,
-        data.sante.ouiRQTH ? "Oui" : "Non",
+        data.sante?.ouiRQTH ? "Oui" : "Non",
         minimasSocio,
         niveauEtude,
         data.InfoDebut?.dateEtLieuDeLEntretien,
         data.InfoDebut?.prescripteur,
         structure,
         data.InfoDebut?.raison
-    ]
+    ])
 
-    XLSX.utils.sheet_add_aoa(worksheet, [newRow], { 
-        origin: -1 
-    })
-
-    XLSX.writeFile(workbook, filePath)
+    await workbook.xlsx.writeFile(filePath)
 }
 
-module.exports = {
-    saveDiagnostic
+module.exports = { 
+    saveDiagnostic 
 }

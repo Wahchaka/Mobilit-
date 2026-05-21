@@ -1,8 +1,8 @@
-const { saveDiagnostic } = require("../Services/excelService")
+const diagnosticService = require("../Services/excelService")
 
 const saveDiagnosticController = (req, res) => {
     try {
-        saveDiagnostic(req.body)
+        diagnosticService.saveDiagnostic(req.body)
         res.status(200).json({ 
             message: "Diagnostic sauvegardé avec succès" 
         })

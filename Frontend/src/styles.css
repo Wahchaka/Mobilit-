@@ -1,2 +1,116 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@media print {
+
+    /* ========== CACHE LES ÉLÉMENTS NON IMPRIMABLES ========== */
+    app-nav-bar,
+    button {
+        display: none !important;
+    }
+
+    /* ========== MISE EN PAGE GÉNÉRALE ========== */
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 12px !important;
+        color: black !important;
+        background: white !important;
+    }
+
+    .h-screen {
+        height: auto !important;
+    }
+
+    /* ========== CONTENEUR PRINCIPAL ========== */
+    .w-300 {
+        width: 100% !important;
+        border: none !important;
+        padding: 10px !important;
+        box-shadow: none !important;
+    }
+
+    /* ========== TITRE CENTRÉ ========== */
+    .justify-center {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* ========== EN-TÊTES DE SECTION (fond gris) ========== */
+    .bg-gray-600 {
+        background-color: #4b5563 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color: white !important;
+        padding: 4px 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .bg-gray-600 h2 {
+        color: white !important;
+        font-weight: bold !important;
+    }
+
+    /* ========== FLEX → BLOCK pour éviter les étirements ========== */
+    .flex {
+        display: block !important;
+    }
+
+    /* Sauf les labels checkbox qui doivent rester inline */
+    label.flex {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin-bottom: 4px !important;
+    }
+
+    /* ========== CHAMPS TEXTE ========== */
+    input[type="text"],
+    input[type="date"],
+    input[type="email"],
+    input[type="tel"] {
+        border: none !important;
+        border-bottom: 1px solid black !important;
+        width: auto !important;
+        max-width: 400px !important;
+        background: transparent !important;
+        outline: none !important;
+        font-size: 12px !important;
+    }
+
+    /* ========== CHECKBOXES ========== */
+    input[type="checkbox"] {
+        width: 14px !important;
+        height: 14px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* ========== ÉVITE LES COUPURES DE PAGE ========== */
+    app-info-debut,
+    app-diagnostic-coordonness,
+    app-status-emploi,
+    app-status-mobilite,
+    app-projet-permis-de-conduire,
+    app-niveau-etude,
+    app-situation-familiale,
+    app-ressources,
+    app-accompagnement-social,
+    app-situation-logement,
+    app-choix-localisation-domicile,
+    app-env-geo-social,
+    app-projet-de-demenagement,
+    app-annee-arriver-france,
+    app-personnes-a-charge,
+    app-sante,
+    app-habitude-de-transport,
+    app-projet-achat,
+    app-representation-apprehension,
+    app-finalites-du-projet-mobilite,
+    app-besoins-exprime-dans-ce-projet,
+    app-savoir-bouger {
+        display: block !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+}

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const { saveDiagnosticController } = require("../Controllers/diagnosticController")
+const diagnosticController = require("../Controllers/diagnosticController")
 
-router.post("/save", saveDiagnosticController)
+router.post("/save", diagnosticController.saveDiagnosticController)
 
 module.exports = router
