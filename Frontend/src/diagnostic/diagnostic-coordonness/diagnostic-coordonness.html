@@ -6,31 +6,33 @@
     <label class="mr-2" for="nomPrenom">Nom/Prénom :</label>
     <input class="border-black border-b w-220 p-1 outline-none" type="text" formControlName="nomPrenom"/>
     <div class="pb-4"></div>
-    <div class="flex">
+<div class="flex">
+    <div>
         <label class="mr-2" for="dateNaissance">Date de naissance :</label>
-        <input class="border-black border-b w-100 p-1 mr-6 outline-none" type="text" formControlName="dateNaissance"/>
-        <div class="pb-4"></div>
-
-        <label class="mr-2" for="age">Age :</label>
-        <input class="border-black border-b w-100 p-1 outline-none" type="number" formControlName="age"/>
+        <input class="border-black border-b w-100 p-1 mr-6 outline-none print-small" type="text" formControlName="dateNaissance"/>
     </div>
+    <div>
+        <label class="mr-2" for="age">Age :</label>
+        <input class="border-black border-b w-100 p-1 outline-none print-small" type="number" formControlName="age"/>
+    </div>
+</div>
     <div class="pb-4"></div>
     <label class="mr-2" for="adresse">Adresse :</label>
     <input class="border-black border-b w-220 p-1 outline-none" type="text" formControlName="adresse"/>
     <div class="pb-4"></div>
-    <div class="flex">
-        <div>
-            <label class="mr-2" for="codePostal">Code postal :</label>
-            <input class="border-black border-b w-100 p-1 mr-6 outline-none" type="number" formControlName="codePostal"/>
-        </div>
-        <div>
-            <label class="mr-2" for="ville">Ville :</label>
-            <input class="border-black border-b w-100 p-1 outline-none" type="text" formControlName="ville"/>
-        </div>
+<div class="flex">
+    <div>
+        <label class="mr-2" for="codePostal">Code postal :</label>
+        <input class="border-black border-b w-100 p-1 mr-6 outline-none print-col-left" type="number" formControlName="codePostal"/>
     </div>
+    <div>
+        <label class="mr-2" for="ville">Ville :</label>
+        <input class="border-black border-b w-100 p-1 outline-none print-col-right" type="text" formControlName="ville"/>
+    </div>
+</div>
     <div class="pb-4"></div>
     <label class="mr-2" for="telephone">Téléphone :</label>
-    <input class="border-black border-b w-220 p-1 outline-none" type="number" formControlName="telephone"/>
+    <input class="border-black border-b w-220 p-1 outline-none" type="tel" formControlName="telephone"/>
     <div class="pb-4"></div>
     <label class="mr-2" for="email">Email :</label>
     <input class="border-black border-b w-220 p-1 outline-none" type="email" formControlName="email"/>
