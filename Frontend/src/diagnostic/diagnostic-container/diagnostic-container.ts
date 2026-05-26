@@ -98,6 +98,15 @@ export class DiagnosticContainer {
       niveau8Texte: new FormControl("")
     }),
 
+    niveauDeFrancais: new FormGroup({
+      faible: new FormControl(false),
+      faibleTexte: new FormControl(""),
+      moyen: new FormControl(false),
+      moyenTexte: new FormControl(""),
+      elever: new FormControl(false),
+      eleverTexte: new FormControl("")
+    }),
+
     situationLogement: new FormGroup({
       neSouhaiteRepondre: new FormControl(false),
       sdf: new FormControl(false),
@@ -1096,6 +1105,10 @@ export class DiagnosticContainer {
 
   get InfoDebut(): FormGroup{
     return this.form.controls['InfoDebut'] as FormGroup
+  }
+
+  get niveauDeFrancais(): FormGroup{
+    return this.form.controls['niveauDeFrancais'] as FormGroup
   }
 
   submit() {

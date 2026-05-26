@@ -1,9 +1,13 @@
 <div [formGroup]="formGroup">
+
 <div class="bg-gray-600 w-full">
     <h2 class="uppercase font-bold text-white pl-2">Niveau d'étude</h2>
 </div>
+
 <div class="pt-4"></div>
+
 <div class="flex flex-col gap-3">
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
         formControlName="etranger">
@@ -12,6 +16,7 @@
         formControlName="etrangerTexte"
         class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
         formControlName="niveau3">
@@ -20,6 +25,7 @@
         formControlName="niveau3Texte"
         class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
         formControlName="niveau4">
@@ -28,6 +34,7 @@
         formControlName="niveau4Texte"
         class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
         formControlName="niveau5">
@@ -36,6 +43,7 @@
         formControlName="niveau5Texte"
         class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
         formControlName="niveau6">
@@ -44,6 +52,7 @@
         formControlName="niveau6Texte"
         class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
+
     <label class="flex items-center gap-2">
         <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
         formControlName="niveau7">
@@ -52,14 +61,38 @@
         formControlName="niveau7Texte"
         class="w-130 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
+
     <label class="flex items-center gap-2">
-        <input type="checkbox" class="w-5 h-5 accent-blue-600"
+        <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer"
         formControlName="niveau8">
         Niveau 8 (Doctorat, habilitation à diriger des recherches)
         <input *ngIf="formGroup.get('niveau8')?.value" type="text"
         formControlName="niveau8Texte"
         class="w-180 border-b border-black px-2 py-1 text-sm outline-none">
     </label>
+
+    <p class="font-bold">Niveau de Français :</p>
+
+    <div [formGroup]="francaisGroup">
+        <div class="flex flex-col gap-3">
+
+            <label class="flex items-center gap-2">
+                <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer" formControlName="faible"> Faible
+            </label>
+
+            <label class="flex items-center gap-2">
+                <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer" formControlName="moyen"> Moyen
+            </label>
+
+            <label class="flex items-center gap-2">
+                <input type="checkbox" class="w-5 h-5 accent-blue-600 cursor-pointer" formControlName="elever"> Élever
+            </label>
+            
+        </div>
+        
+    </div>
+
     <div class="pb-4"></div>
+
 </div>
 </div>

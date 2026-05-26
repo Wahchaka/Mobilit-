@@ -10,4 +10,5 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class NiveauEtude {
   @Input() formGroup!: FormGroup
+  @Input() francaisGroup!: FormGroup
 }

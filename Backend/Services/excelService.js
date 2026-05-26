@@ -3,12 +3,13 @@ const path = require('path')
 const fs = require('fs')
 const os = require('os')
 
-const FILE_NAME = 'Diagnostics_mobilité_2026.xlsx'
+const currentYear = new Date().getFullYear()
+const FILE_NAME = `Suivi ${currentYear} Quentyn.xlsx`
 const filePath = path.join(os.homedir(), 'Desktop', FILE_NAME)
 
 const HEADERS = [
     'Nom / prénom', 'Date de naissance', 'Age', 'Situation', 'Enfants',
-    'Ville', 'RQTH', 'Minima sociaux', 'Niveau de formation',
+    'Ville', 'RQTH', 'Minima sociaux', 'Niveau de formation', 'Niveau FR',
     'Date de prescription', 'Prescripteur', 'Structure', 'Raison'
 ]
 
@@ -58,6 +59,12 @@ async function saveDiagnostic(data) {
         data.niveauDEtudes?.niveau8 ? "Niveau 8" : null,
     ].filter(Boolean).join(", ")
 
+    const frLvl = [
+        data.niveauDeFrancais?.faible ? "Faible" : null,
+        data.niveauDeFrancais?.moyen ? "Moyen" : null,
+        data.niveauDeFrancais?.elever ? "Élever" : null
+    ].filter(Boolean).join(", ")
+
     const situation = [
         data.situationFamiliale?.veuf ? "Veuf" : null,
         data.situationFamiliale?.divorcé ? "Divorcé" : null,
@@ -85,6 +92,7 @@ async function saveDiagnostic(data) {
         data.sante?.ouiRQTH ? "Oui" : "Non",
         minimasSocio,
         niveauEtude,
+        frLvl,
         data.InfoDebut?.dateEtLieuDeLEntretien,
         data.InfoDebut?.prescripteur,
         structure,
