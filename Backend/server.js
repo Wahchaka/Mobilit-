@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const env = require("./.env");
 const errorHandling = require("./Middlewares/errorsHandler")
 
 const app = express();
