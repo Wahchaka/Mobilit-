@@ -2,11 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const env = require("./.env");
 const errorHandling = require("./Middlewares/errorsHandler")
-// const sequelize = require("./dataBase")
 
 const app = express();
 
-const port = env.EXPRESS_PORT
+const port = 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
