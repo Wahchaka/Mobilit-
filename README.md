@@ -1,0 +1,1 @@
+Lancer le .exe, remplissez votre fiche. Si l'Excel n'existe pas, un Excel avec les données renseignée dans la fiche sera créer. Cet excel sera alimenter au fur et à mesure que vous remplirez des diagnostics
