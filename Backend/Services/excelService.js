@@ -4,7 +4,15 @@ const fs = require('fs')
 const os = require('os')
 
 const currentYear = new Date().getFullYear()
-const FILE_NAME = `Suivi ${currentYear} Quentyn.xlsx`
+let FILE_NAME
+
+if (currentYear === 2026) {
+    FILE_NAME = `Suivi ${currentYear} Quentyn.xlsx`
+}
+else {
+    FILE_NAME = `Suivi ${currentYear}.xlsx`
+}
+
 const filePath = path.join(os.homedir(), 'Desktop', FILE_NAME)
 
 const header = [
