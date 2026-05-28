@@ -1,8 +1,13 @@
 const diagnosticService = require("../Services/excelService")
 
 const saveDiagnosticController = (req, res) => {
+    if(!req.body || Object.keys(req.body).length === 0) {
+        return res.status(400).json({
+            message: "Aucune donnée reçue"
+        })
+    }
     try {
-        diagnosticService.saveDiagnostic(req.body)
+        await diagnosticService.saveDiagnostic(req.body)
         res.status(200).json({ 
             message: "Diagnostic sauvegardé avec succès" 
         })

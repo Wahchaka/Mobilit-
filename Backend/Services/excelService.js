@@ -4,16 +4,16 @@ const fs = require('fs')
 const os = require('os')
 
 const currentYear = new Date().getFullYear()
-let FILE_NAME
+let fileName
 
 if (currentYear === 2026) {
-    FILE_NAME = `Suivi ${currentYear} Quentyn.xlsx`
+    fileName = `Suivi ${currentYear} Quentyn.xlsx`
 }
 else {
-    FILE_NAME = `Suivi ${currentYear}.xlsx`
+    fileName = `Suivi ${currentYear}.xlsx`
 }
 
-const filePath = path.join(os.homedir(), 'Desktop', FILE_NAME)
+const filePath = path.join(os.homedir(), 'Desktop', fileName)
 
 const header = [
     'Nom / prénom', 'Date de naissance', 'Age', 'Situation', 'Enfants',
@@ -34,14 +34,11 @@ async function saveDiagnostic(data) {
     // Cherche l'onglet "Diagnostics" dans le fichier
     let worksheet = workbook.getWorksheet('Diagnostics')
 
-    // Si l'onglet n'existe pas encore, on le crée
     if (!worksheet) {
         worksheet = workbook.addWorksheet('Diagnostics')
 
-        // Ajoute la ligne d'en-tête (les noms des colonnes)
         const headerRow = worksheet.addRow(header)
 
-        // Met en forme chaque cellule de l'en-tête
         headerRow.eachCell(cell => {
             cell.font = { 
                 bold: true 
@@ -66,6 +63,8 @@ async function saveDiagnostic(data) {
     if (data.ressource && data.ressource.sans) { minimasSocioListe.push("Sans") }
     const minimasSocio = minimasSocioListe.join(", ")
 
+
+
     const niveauEtudeListe = []
     if (data.niveauDEtudes && data.niveauDEtudes.etranger) { niveauEtudeListe.push("Étranger") }
     if (data.niveauDEtudes && data.niveauDEtudes.niveau3) { niveauEtudeListe.push("Niveau 3") }
@@ -76,11 +75,15 @@ async function saveDiagnostic(data) {
     if (data.niveauDEtudes && data.niveauDEtudes.niveau8) { niveauEtudeListe.push("Niveau 8") }
     const niveauEtude = niveauEtudeListe.join(", ")
 
+
+
     const frLvlListe = []
     if (data.niveauDeFrancais && data.niveauDeFrancais.faible) { frLvlListe.push("Faible") }
     if (data.niveauDeFrancais && data.niveauDeFrancais.moyen) { frLvlListe.push("Moyen") }
     if (data.niveauDeFrancais && data.niveauDeFrancais.elever) { frLvlListe.push("Élever") }
     const frLvl = frLvlListe.join(", ")
+
+
 
     const situationListe = []
     if (data.situationFamiliale && data.situationFamiliale.veuf) { situationListe.push("Veuf") }
@@ -88,6 +91,8 @@ async function saveDiagnostic(data) {
     if (data.situationFamiliale && data.situationFamiliale.celib) { situationListe.push("Célibataire") }
     if (data.situationFamiliale && data.situationFamiliale.marié) { situationListe.push("Marié") }
     const situation = situationListe.join(", ")
+
+
 
     let enfants
     if (data.situationFamiliale && data.situationFamiliale.sansEnfant) {
@@ -100,6 +105,8 @@ async function saveDiagnostic(data) {
         enfants = ""
     }
 
+
+
     const structureListe = []
     if (data.AccompagnementSocial && data.AccompagnementSocial.Département) { structureListe.push("Dpt") }
     if (data.AccompagnementSocial && data.AccompagnementSocial.France_Travail) { structureListe.push("France Travail") }
@@ -107,6 +114,8 @@ async function saveDiagnostic(data) {
     if (data.AccompagnementSocial && data.AccompagnementSocial.Mission_locale) { structureListe.push("MILO") }
     if (data.AccompagnementSocial && data.AccompagnementSocial.Autre_Texte) { structureListe.push(data.AccompagnementSocial.Autre_Texte) }
     const structure = structureListe.join(", ")
+
+
 
     let rqth
     if (data.sante && data.sante.ouiRQTH) {

@@ -8,13 +8,15 @@ const port = 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors())
-
-app.use(errorHandling)
+app.use(cors({
+    origin: "http://localhost:4200"
+}))
 
 const diagnosticRoutes = require("./Routes/diagnosticRoutes")
 
 app.use("/diagnostic", diagnosticRoutes)
+
+app.use(errorHandling)
 
 app.listen(port, () => {
     console.log(`Serveur lancer : http://localhost:${port}`)
