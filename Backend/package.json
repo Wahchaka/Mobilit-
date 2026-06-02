@@ -10,7 +10,8 @@
       "../Frontend/dist/Frontend/browser/**/*"
     ],
     "targets": ["node18-win-x64"],
-    "outputPath": "../dist"
+    "outputPath": "../dist",
+    "outputName": "MobiMilo"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
