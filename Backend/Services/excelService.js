@@ -3,7 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const os = require('os')
 
-const currentYear = new Date().getFullYear()
+let currentYear = new Date().getFullYear()
 let fileName
 
 if (currentYear === 2026) {
