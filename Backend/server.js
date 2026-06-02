@@ -27,4 +27,4 @@ app.use(errorHandling)
 app.listen(port, () => {
     console.log(`Serveur lancer : http://localhost:${port}`)
     exec(`start http://localhost:${port}`)
-})
+}) 
