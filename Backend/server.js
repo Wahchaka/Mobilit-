@@ -25,6 +25,6 @@ app.get('/{*path}', (req, res) => {
 app.use(errorHandling)
 
 app.listen(port, () => {
-    console.log(`Serveur lancer : http://localhost:${port}`)
+    console.log(`Logiciel lancé ! pour éteindre MobiMilo.exe veuillez fermer cette fenêtre.`)
     exec(`start http://localhost:${port}`)
 }) 
