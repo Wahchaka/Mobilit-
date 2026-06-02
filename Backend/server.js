@@ -20,7 +20,7 @@ app.use("/diagnostic", diagnosticRoutes)
 
 app.get('/{*path}', (req, res) => {
     res.sendFile(path.join(__dirname, '../Frontend/dist/Frontend/browser/index.html'))
-})
+}) 
 
 app.use(errorHandling)
 
