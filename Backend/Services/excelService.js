@@ -13,7 +13,7 @@ else {
     fileName = `Suivi ${currentYear}.xlsx`
 }
 
-const filePath = path.join(os.homedir(), 'Desktop', fileName)
+const filePath = path.join(os.homedir(), 'Documents', fileName)
 
 const header = [
     'Nom / prénom', 'Date de naissance', 'Age', 'Situation', 'Enfants',
