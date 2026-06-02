@@ -25,6 +25,8 @@ app.get('/{*path}', (req, res) => {
 app.use(errorHandling)
 
 app.listen(port, () => {
-    console.log(`Logiciel lancé ! pour éteindre MobiMilo.exe veuillez fermer cette fenêtre.`)
+    console.log(`Logiciel lancé sur votre navigateur, si malgré tout votre navigateur ne se lance pas, essayer d'aller sur l'adresse: "http://localhost:${port}".
+        Pour éteindre MobiMilo.exe veuillez fermer cette fenêtre.
+        Pour que le logiciel créer/ajoute de nouvelles information sur votre Excel "suivi_année" veuillez avoir ce dernier fermé.`)
     exec(`start http://localhost:${port}`)
 }) 
